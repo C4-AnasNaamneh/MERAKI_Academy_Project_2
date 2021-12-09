@@ -2,10 +2,10 @@
 
 let toDoList = [
     
-    {task: "Wake Up",id:1},
+  /*  {task: "Wake Up",id: "completed"},
     {task: "Eat",id:2},
     {task: "Code",id:3},
-    {task: "Sleep",id:4},
+    {task: "Sleep",id:4},*/
     
 ] 
 
@@ -20,7 +20,7 @@ tasks.appendTo(container);
 const completed = $("<div></div>");
 completed.appendTo(container);
 
-const anchor = $("<a href=#></a>");
+const anchor = $("<a href=tasks></a>");
 anchor.text("Tasks")
 anchor.appendTo(tasks)
 
@@ -44,6 +44,8 @@ divContainer.appendTo(body);
 
 const unorderedList = $("<ul></ul>");
 unorderedList.appendTo(divContainer);
+
+unorderedList.hide();
 
 const input = $("<input>");
 input.appendTo(divContainer);
@@ -75,6 +77,7 @@ newbutton.on("click",()=>{
     listItem.remove();
 })
 
+
 updatebutton.on("click",()=>{  
 
 listItem.text(input.val());
@@ -93,21 +96,29 @@ updatebutton.on("click" ,()=>{
 
 })
 
+
 completedbutton.on("click",()=>{
 
      //hide pages and move to completed page or move to array completed
     // we can make if (completed button);
+   /* toDoList.forEach((element)=> {
+        if () {
 
+        }
+
+    })*/
+
+    
 })
-inputDate.on( "onselect",()=>{
+inputDate.on( "change",()=>{
 
     listItem.text(inputDate.val());
 })
 
 tasks.on("click" ,()=>{
 
-    divContainer.hide();
 
+    unorderedList.show();
 
 })
 
@@ -130,6 +141,8 @@ completedbutton.appendTo(listItem);
 toDo();
 
 const addtoList = () => {
+
+unorderedList.show()
 
 toDoList = [];
 toDoList.push( { task: input.val()});
