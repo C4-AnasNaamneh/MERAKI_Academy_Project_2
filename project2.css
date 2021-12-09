@@ -1,12 +1,47 @@
+* {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        height: auto;
+        width: auto;
+        text-align: center;
+      
+      }
+
+
+
+
 #container {
 
     display: flex;
-    gap: 10px;
+    gap: 30px;
 justify-content: end;
+background-color: #030F29;
+height: 30px;
+
+
+
 }
 
  .anchor {
 
     text-decoration: none;
+    color: #EBFEE9;
+    font-size: larger;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 
 }
+
+.completed {
+
+    position: relative;
+    right:10px;
+}
+
+.divContainer {
+
+    position:relative;
+    top: 80px;
+
+}
+
