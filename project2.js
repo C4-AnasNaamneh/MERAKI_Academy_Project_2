@@ -11,6 +11,27 @@ let toDoList = [
 
 const body = $("body");
 
+const container = $("#container");
+
+const tasks = $("<div></div>");
+tasks.appendTo(container);
+
+
+const completed = $("<div></div>");
+completed.appendTo(container);
+
+const header = $("<h1></h1>");
+header.text("Tasks")
+header.appendTo(tasks)
+
+const header1 = $("<h1></h1>");
+header1.text("Completed")
+header1.appendTo(completed);
+
+tasks.addClass("tasks");
+completed.addClass("completed")
+
+
 const unorderedList = $("<ul></ul>");
 unorderedList.appendTo(body);
 
@@ -27,8 +48,10 @@ button.appendTo(body);
 
 
 
+
 const toDo = () => {
 toDoList.forEach((element,i)=>{
+
 let listItem = $("<li></li>")
 const newbutton = $("<button>Delete</button>")
 const updatebutton = $("<button>Update</button>")
@@ -64,16 +87,19 @@ completedbutton.on("click",()=>{
     // we can make if (completed button);
 
 })
+inputDate.on( "onselect",()=>{
+
+    listItem.text(inputDate.val());
+})
+
 
 
 })
 
 
-
 listItem.text(element.task );
 listItem.appendTo(unorderedList);
 inputDate.appendTo(listItem);
-
 newbutton.appendTo(listItem);
 updatebutton.appendTo(listItem);
 completedbutton.appendTo(listItem);
@@ -88,11 +114,11 @@ const addtoList = () => {
 
 toDoList = [];
 toDoList.push( { task: input.val()});
-
 toDo()
 }
 
 button.on("click" , addtoList);
+
 
 
 
