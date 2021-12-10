@@ -44,14 +44,15 @@ let toDoList = [
   unorderedList.appendTo(divContainer);
   
   
-  const input = $("<input>");
+  const input = $(`<input placeholder="Add New Task...">`);
   input.appendTo(divContainer);
   
-  const inputDate = $("<input type = date></input");
+  const inputDate = $("<input  type = date></input");
   inputDate.appendTo(divContainer);
   
-  const addbutton = $("<button></button>")
+  const addbutton = $("<button></button>");
   addbutton.text("add");
+  addbutton.addClass("addbutton")
   addbutton.appendTo(divContainer);
   
   

@@ -38,6 +38,20 @@ height: 30px;
     right:10px;
 }
 
+input {
+   height: 40px;
+    width: 400px;
+}
+
+.addbutton {
+
+    height: 40px;
+    width: 100px;
+}
+
+
+
+
 .divContainer {
 
     position:relative;
