@@ -1,11 +1,4 @@
-let toDoList = [
-    
-     /* {task: "Wake Up",id: "completed"},
-      {task: "Eat",id:2},
-      {task: "Code",id:3},
-      {task: "Sleep",id:4},*/
-      
-  ] 
+let toDoList = []; 
   const body = $("body");
   
   const container = $("#container");
@@ -43,8 +36,13 @@ title.appendTo(container)
   anchor1.addClass("anchor");
   
   const divContainer = $("<div></div>");
-  divContainer.addClass("divContainer")
+  divContainer.addClass("divContainer");
   
+
+  const inputbuttondiv = $("<div></div>");
+  inputbuttondiv.addClass("inputbuttondiv");
+  inputbuttondiv.appendTo(body)
+
   
   divContainer.appendTo(body);
   
@@ -55,16 +53,16 @@ title.appendTo(container)
   
   
   const input = $(`<input placeholder="Add New Task...">`);
-  input.appendTo(divContainer);
+  input.appendTo(inputbuttondiv);
   
   const inputDate = $("<input  type = date></input");
   inputDate.addClass("inputDate");
-  inputDate.appendTo(divContainer);
+  inputDate.appendTo(inputbuttondiv);
   
   const addbutton = $("<button></button>");
   addbutton.text("add");
   addbutton.addClass("addbutton")
-  addbutton.appendTo(divContainer);
+  addbutton.appendTo(inputbuttondiv);
   
 
   
@@ -85,10 +83,6 @@ title.appendTo(container)
   updatebutton.addClass("updatebutton");
   completedbutton.addClass("completedbutton");
 
-
-
-
-  
   deletebutton.on("click",()=>{
   
       listItem.remove();
@@ -115,47 +109,36 @@ title.appendTo(container)
         
   
   })
-
-  let completedList = [
-    
-    {task: input.val(),id: "completed"},
-    {task: input.val(),id: "completed"},
-    {task: input.val(),id: "completed"},
-    {task: input.val(),id: "completed"},
-
- 
- ]
-
-  
-  
-  completedbutton.on("click",()=>{
-  
-
-    listItem.text(input.val())
-
        //hide pages and move to completed page or move to array completed
-      // we can make if (completed button);
-
-
-          
-  
-          //item.task = element.task
-          
-        //  item.appendTo(unorderedList)
-
-      })
-      
+      // we can make if (completed button);  
   })
+
+  tasks.on("click" ,()=>{
+
+  inputbuttondiv.hide();
+
+  })
+
+completedbutton.on("click",()=>{
+
+
+  listItem.text(input.val())
+
+})
+
+
+completed.on("click",()=>{
+
+
+})
+
+
   inputDate.on("change",()=>{
   
       listItem.text(inputDate.val());
   })
   
-  tasks.on("click" ,()=>{
-
- 
-
-  })
+  
   
   
   
@@ -176,9 +159,22 @@ title.appendTo(container)
   const addtoList = () => {
     
   
-  toDoList = [];
+  //toDoList = [];
   toDoList.push( { task: input.val()});
   toDo()
   }
   
   addbutton.on("click" , addtoList);
+
+
+  /*let completedList = [
+    
+    {task: input.val(),id: "completed"},
+    {task: input.val(),id: "completed"},
+    {task: input.val(),id: "completed"},
+    {task: input.val(),id: "completed"},
+
+ 
+ ]
+
+  */
