@@ -41,13 +41,48 @@ height: 30px;
 input {
    height: 40px;
     width: 400px;
+ position: static;
+}
+
+.inputDate {
+
+    position: static;
+
 }
 
 
-.buttons {
+.addbutton {
+
     height: 40px;
     width: 100px;
+    background-color: gray;
+    position: static;
 
+
+}
+
+
+.deletebutton {
+
+    height: 40px;
+    width: 100px;
+    background-color: red;
+
+}
+
+.updatebutton {
+
+    height: 40px;
+    width: 100px;
+    background-color: blue;
+}
+
+
+.completedbutton {
+
+    height: 40px;
+    width: 100px;
+    background-color: green;
 }
 
 
@@ -58,5 +93,7 @@ input {
     top: 80px;
 
 }
+
+
 
 

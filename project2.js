@@ -1,6 +1,6 @@
 let toDoList = [
     
-    /*  {task: "Wake Up",id: "completed"},
+     /* {task: "Wake Up",id: "completed"},
       {task: "Eat",id:2},
       {task: "Code",id:3},
       {task: "Sleep",id:4},*/
@@ -41,6 +41,7 @@ let toDoList = [
   
   
   const unorderedList = $("<ul></ul>");
+  unorderedList.addClass("unorderedList");
   unorderedList.appendTo(divContainer);
   
   
@@ -48,13 +49,13 @@ let toDoList = [
   input.appendTo(divContainer);
   
   const inputDate = $("<input  type = date></input");
+  inputDate.addClass("inputDate");
   inputDate.appendTo(divContainer);
   
   const addbutton = $("<button></button>");
   addbutton.text("add");
-  addbutton.addClass("buttons")
+  addbutton.addClass("addbutton")
   addbutton.appendTo(divContainer);
-  
   
   
   
@@ -67,16 +68,16 @@ let toDoList = [
   toDoList.forEach((element,i)=>{
   
   
-  let listItem = $("<li></li>")
-  const deletebutton = $("<button>Delete</button>")
-  const updatebutton = $("<button>Update</button>")
-  const completedbutton = $("<button>Completed</button>")
+  let listItem = $("<li></li>");
+  listItem.addClass("listItem");
+  const deletebutton = $("<button>Delete</button>");
+  const updatebutton = $("<button>Update</button>");
+  const completedbutton = $("<button>Completed</button>");
   //const inputDate = $("<input type = date></input");
   
-  deletebutton.addClass("buttons");
-  updatebutton.addClass("buttons");
-  completedbutton.addClass("buttons");
-
+  deletebutton.addClass("deletebutton");
+  updatebutton.addClass("updatebutton");
+  completedbutton.addClass("completedbutton");
 
 
 
@@ -105,7 +106,7 @@ let toDoList = [
   updatebutton.on("click" ,()=>{
   
       listItem.text(input.val());
-  
+        
   
   })
   
@@ -127,9 +128,8 @@ let toDoList = [
   })
   
   tasks.on("click" ,()=>{
-  
-  
-  
+
+ 
   })
   
   
