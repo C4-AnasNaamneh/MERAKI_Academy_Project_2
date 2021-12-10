@@ -122,17 +122,18 @@ const toDo = () => {
 
     completed.on("click", () => {
       toDoList.forEach((element, i) => {
-        if (element.isCompleted) {
+        if (element.isCompleted ) {
           // const newDiv = $("<div></div>");
           // newDiv.appendTo(body);
 
           listItem.show();
           // listItem.text(element.isCompleted);
 
-          listItem.text(element.task);
           console.log(element);
         }
       });
+      listItem.text(element.task);
+
     });
 
     // inputDate.on("change", () => {
@@ -164,3 +165,14 @@ addbutton.on("click", addtoList);
  ]
 
   */
+
+/*
+ const inputVal = ()=>{
+
+toDoList = [];
+toDoList.push({task: inputDate.val()})
+toDo()
+ }
+*/
+ //addbutton.on("click",inputVal);
+
