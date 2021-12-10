@@ -1,12 +1,11 @@
 let toDoList = [
     
-    /*  {task: "Wake Up",id: "completed"},
+     /* {task: "Wake Up",id: "completed"},
       {task: "Eat",id:2},
       {task: "Code",id:3},
       {task: "Sleep",id:4},*/
       
   ] 
-  
   const body = $("body");
   
   const container = $("#container");
@@ -67,14 +66,11 @@ title.appendTo(container)
   addbutton.addClass("addbutton")
   addbutton.appendTo(divContainer);
   
-  
+
   
   const toDo = () => {
 
-   
-
-
-
+    
   toDoList.forEach((element,i)=>{
   
   
@@ -119,17 +115,35 @@ title.appendTo(container)
         
   
   })
+
+  let completedList = [
+    
+    {task: input.val(),id: "completed"},
+    {task: input.val(),id: "completed"},
+    {task: input.val(),id: "completed"},
+    {task: input.val(),id: "completed"},
+
+ 
+ ]
+
   
   
   completedbutton.on("click",()=>{
   
+
+    listItem.text(input.val())
+
        //hide pages and move to completed page or move to array completed
       // we can make if (completed button);
-     /* toDoList.forEach((element)=> {
-          if () {
-          }
-      })*/
+
+
+          
   
+          //item.task = element.task
+          
+        //  item.appendTo(unorderedList)
+
+      })
       
   })
   inputDate.on("change",()=>{
@@ -140,10 +154,9 @@ title.appendTo(container)
   tasks.on("click" ,()=>{
 
  
+
   })
   
-  
-  })
   
   
   listItem.text(element.task );
