@@ -43,12 +43,12 @@ input {
     width: 400px;
 }
 
-.addbutton {
 
+.buttons {
     height: 40px;
     width: 100px;
-}
 
+}
 
 
 
@@ -58,4 +58,5 @@ input {
     top: 80px;
 
 }
+
 

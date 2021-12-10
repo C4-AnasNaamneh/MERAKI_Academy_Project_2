@@ -52,7 +52,7 @@ let toDoList = [
   
   const addbutton = $("<button></button>");
   addbutton.text("add");
-  addbutton.addClass("addbutton")
+  addbutton.addClass("buttons")
   addbutton.appendTo(divContainer);
   
   
@@ -73,6 +73,10 @@ let toDoList = [
   const completedbutton = $("<button>Completed</button>")
   //const inputDate = $("<input type = date></input");
   
+  deletebutton.addClass("buttons");
+  updatebutton.addClass("buttons");
+  completedbutton.addClass("buttons");
+
 
 
 
