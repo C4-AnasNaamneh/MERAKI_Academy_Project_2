@@ -1,6 +1,6 @@
 let toDoList = [
     
-     /* {task: "Wake Up",id: "completed"},
+    /*  {task: "Wake Up",id: "completed"},
       {task: "Eat",id:2},
       {task: "Code",id:3},
       {task: "Sleep",id:4},*/
@@ -11,6 +11,16 @@ let toDoList = [
   
   const container = $("#container");
   
+const title = $("<div></div>")
+
+title.addClass("title");
+title.appendTo(container)
+
+  const header = $("<h1>Schedule your day</h1>");
+
+  header.addClass("h1")
+  header.appendTo(title)
+
   const tasks = $("<div></div>");
   tasks.appendTo(container);
   
@@ -159,5 +169,3 @@ let toDoList = [
   }
   
   addbutton.on("click" , addtoList);
-  
-  
