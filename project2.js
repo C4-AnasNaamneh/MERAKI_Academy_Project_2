@@ -49,7 +49,6 @@ unorderedList.appendTo(divContainer);
 const input = $(`<input placeholder="Add New Task...">`);
 input.appendTo(inputbuttondiv);
 
-
 const inputDate = $("<input  type = date></input");
 inputDate.addClass("inputDate");
 inputDate.appendTo(inputbuttondiv);
@@ -60,19 +59,25 @@ addbutton.addClass("addbutton");
 addbutton.appendTo(inputbuttondiv);
 
 const toDo = () => {
-  unorderedList.text("");
+  // toDoList =[]
 
+  unorderedList.text("");
   toDoList.forEach((element, i) => {
     let listItem = $("<li></li>");
     listItem.addClass("listItem");
     const deletebutton = $("<button>Delete</button>");
     const updatebutton = $("<button>Update</button>");
     const completedbutton = $("<button>Completed</button>");
-    //const inputDate = $("<input type = date></input");
+
+    const divDate = $(`<div>${inputDate.val()}</div>`);
+
+    // divDate.text();
+
     listItem.text(element.task);
     listItem.appendTo(unorderedList);
-    // inputDate.appendTo(inputbuttondiv);
-    // inputDate.appendTo(listItem);
+
+    divDate.appendTo(listItem);
+
     deletebutton.appendTo(listItem);
     updatebutton.appendTo(listItem);
     completedbutton.appendTo(listItem);
@@ -89,6 +94,8 @@ const toDo = () => {
       listItem.text(input.val());
       deletebutton.appendTo(listItem);
       updatebutton.appendTo(listItem);
+      divDate.appendTo(listItem);
+
       completedbutton.appendTo(listItem);
 
       deletebutton.on("click", () => {
@@ -107,25 +114,40 @@ const toDo = () => {
     });
 
     completedbutton.on("click", () => {
-      //listItem.text(input.val())
-      listItem.text(input.val());
+      element.isCompleted = true;
+      console.log(element);
+      //listItem.text(false);
+      listItem.hide(); //hide completed  from here
     });
 
     completed.on("click", () => {
-      if (completed) {
-      }
+      toDoList.forEach((element, i) => {
+        if (element.isCompleted) {
+          // const newDiv = $("<div></div>");
+          // newDiv.appendTo(body);
+
+          listItem.show();
+          // listItem.text(element.isCompleted);
+
+          listItem.text(element.task);
+          console.log(element);
+        }
+      });
     });
 
-    inputDate.on("change", () => {
-      listItem.text(inputDate.val());
-    });
+    // inputDate.on("change", () => {
+    //   //listItem.text(inputDate.val());
+
+    //        // inputDate.val().appendTo(divDate);
+
+    // });
   });
 };
 toDo();
 
 const addtoList = () => {
   //toDoList = [];
-  toDoList.push({ task: input.val() });
+  toDoList.push({ task: input.val(), isCompleted: false });
   toDo();
 };
 
