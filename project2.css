@@ -45,7 +45,7 @@ height: 35px;
 
     display: flex; 
     position: relative ;
-    right: 850px;
+    right: 750px;
     color: white;
     
     }
@@ -143,10 +143,16 @@ margin-top: 150px;
     height: 35px;
     width: 400px;
     left: 300px;
+}
 
+.logoutAnchor {
 
-
-    
+    text-decoration: none;
+    position: relative;
+    right: 10px;
+    color: #EBFEE9;
+    font-size: large;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 
 }
 

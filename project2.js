@@ -60,9 +60,6 @@ addbutton.addClass("addbutton");
 addbutton.appendTo(inputbuttondiv);
 
 
-
-
-
 const RegisterDiv = $("<div></div>");
 RegisterDiv.addClass("RegisterDiv")
 RegisterDiv.appendTo(body);
@@ -118,18 +115,26 @@ loginbutton.addClass("loginbutton")
 loginbutton.appendTo(loginDiv)
 
 
+const logout = $(`<div></div>`);
+logout.addClass("logoutAnchor");
+logout.appendTo(container);
+
+const logoutAnchor = $("<a href =# >Logout</a>");
+logoutAnchor.addClass("logoutAnchor");
+logoutAnchor.appendTo(logout)
+
+
+
 inputbuttondiv.hide();
 divContainer.hide();
 loginDiv.hide();
 
 
 
-
-
 Registerbutton.on ("click" , (()=>{
 
   inputbuttondiv.show();
-divContainer.hide();
+divContainer.show();
 RegisterDiv.hide();
 
 
