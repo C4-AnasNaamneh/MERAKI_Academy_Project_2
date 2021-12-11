@@ -51,11 +51,18 @@ const input = $(`<input placeholder="Add New Task...">`);
 input.appendTo(inputbuttondiv);
 
 const inputDate = $("<input  type = date></input");
+//const inputDate = $(`<i class='far fa-calendar'  type = 'date'></i>`)
+
 inputDate.addClass("inputDate");
 inputDate.appendTo(inputbuttondiv);
 
-const addbutton = $("<button></button>");
-addbutton.text("add");
+
+
+
+
+//const addbutton = $("<button></button>");
+const addbutton = $(`<i class="fas fa-plus-circle"></i>`)
+addbutton.text("");
 addbutton.addClass("addbutton");
 addbutton.appendTo(inputbuttondiv);
 
@@ -184,9 +191,9 @@ const toDo = () => {
   toDoList.forEach((element, i) => {
     let listItem = $("<li></li>");
     listItem.addClass("listItem");
-    const deletebutton = $("<button>Delete</button>");
-    const updatebutton = $("<button>Update</button>");
-    const completedbutton = $("<button>Completed</button>");
+    const deletebutton = $(`<i class="fas fa-trash-alt"></i>`);
+    const updatebutton = $(`<i class="fas fa-edit"></i>`);
+    const completedbutton = $(`<i class="fa fa-check" aria-hidden="true"></i>`);
 
     const divDate = $(`<div>${element.date}</div>`);
 

@@ -172,10 +172,13 @@ input {
 
 .addbutton {
 
+    padding-top: 11.9px;
+
     height: 40px;
-    width: 100px;
-    background-color: gray;
+    width: 50px;
+    background-color: rgb(18, 15, 185);
     position: static;
+    margin-left: 20px;
 
 
 }
@@ -183,25 +186,30 @@ input {
 
 .deletebutton {
 
-    height: 40px;
-    width: 100px;
+    height: 25px;
+    width: 25px;
     background-color: red;
+    margin-left: 20px;
 
 }
 
 .updatebutton {
 
-    height: 40px;
-    width: 100px;
+    height: 25px;
+    width: 25px;
     background-color: blue;
+    margin-left: 20px;
+
 }
 
 
 .completedbutton {
 
-    height: 40px;
-    width: 100px;
+    height: 25px;
+    width: 25px;
     background-color: green;
+    margin-left: 20px;
+
 }
 
 
@@ -242,7 +250,7 @@ input {
  
  }
 
-@media  (orientation: portrait) {
+@media  (orientation: portrait)  {
 
     input {
     
@@ -290,7 +298,7 @@ input {
         width: 100px;
         background-color: green;
     }
-    
+
     }
 
 
