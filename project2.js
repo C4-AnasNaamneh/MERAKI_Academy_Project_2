@@ -91,9 +91,11 @@ const toDo = () => {
 
       storage.forEach((element, i) => {
 
-        //const remove = toDoList.pop();
+        console.log(storage);
 
-        const myJSON = JSON.stringify("");
+        const remove = toDoList.pop();
+
+        const myJSON = JSON.stringify(toDoList);
 
         JSON.parse(localStorage.getItem("toDoList"));
 
@@ -105,8 +107,9 @@ const toDo = () => {
     updatebutton.on("click", () => {
       listItem.text(input.val());
 
-
       storage.forEach((element, i) => {
+
+
        // const update = toDoList.splice(i, 1);
 
        //storage.push(element);
