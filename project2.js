@@ -1,4 +1,5 @@
 let toDoList = [];
+let storge = JSON.parse(localStorage.getItem("toDoList"));
 const body = $("body");
 
 const container = $("#container");
@@ -60,7 +61,6 @@ addbutton.appendTo(inputbuttondiv);
 
 const toDo = () => {
   // toDoList =[]
-
   unorderedList.text("");
   toDoList.forEach((element, i) => {
     let listItem = $("<li></li>");
@@ -69,12 +69,9 @@ const toDo = () => {
     const updatebutton = $("<button>Update</button>");
     const completedbutton = $("<button>Completed</button>");
 
-    const divDate = $(`<div>${inputDate.val()}</div>`);
+    const divDate = $(`<div>${element.date}</div>`);
 
     // divDate.text();
-
-
-
 
     listItem.text(element.task);
     listItem.appendTo(unorderedList);
@@ -92,48 +89,33 @@ const toDo = () => {
     deletebutton.on("click", () => {
       listItem.remove();
 
+      storage.forEach((element, i) => {
+        const remove = toDoList.pop();
 
-toDoList.forEach((element,i)=>{
+        const myJSON = JSON.stringify(remove);
 
-  const remove = toDoList.pop();
+        JSON.parse(localStorage.getItem("toDoList"));
 
-  const myJSON = JSON.stringify(remove);
+        console.log(JSON.parse(localStorage.getItem("toDoList")));
 
-
-  JSON.parse(localStorage.getItem("toDoList"));
-
-    console.log( JSON.parse(localStorage.getItem("toDoList")));
-
-   localStorage.setItem("toDoList", myJSON);
-
-})
-
-       
-
-
+        localStorage.setItem("toDoList", myJSON);
+      });
     });
 
     updatebutton.on("click", () => {
       listItem.text(input.val());
 
+      toDoList.forEach((element, i) => {
+        const update = toDoList.splice(i, 1);
 
-      toDoList.forEach((element,i)=>{
-
-        const update = toDoList.splice(i,1);
-      
         const myJSON = JSON.stringify(update);
-      
-      
+
         JSON.parse(localStorage.getItem("toDoList"));
-      
-          console.log( JSON.parse(localStorage.getItem("toDoList")));
-      
-         localStorage.setItem("toDoList", myJSON);
-      
-      })
 
+        console.log(JSON.parse(localStorage.getItem("toDoList")));
 
-
+        localStorage.setItem("toDoList", myJSON);
+      });
 
       deletebutton.appendTo(listItem);
       updatebutton.appendTo(listItem);
@@ -141,14 +123,18 @@ toDoList.forEach((element,i)=>{
       completedbutton.appendTo(listItem);
 
       deletebutton.on("click", () => {
-      
-
         listItem.remove();
       });
 
       updatebutton.on("click", () => {
         listItem.text(input.val());
+      });
 
+      completedbutton.on("click", () => {
+        element.isCompleted = true;
+        console.log(element);
+        //listItem.text(false);
+        listItem.hide(); //hide completed  from here
       });
     });
 
@@ -200,14 +186,11 @@ const addtoList = () => {
   });
   toDo();
 
-// const arr = [];
-const myJSON = JSON.stringify(toDoList);
-localStorage.setItem("toDoList",myJSON);
+  // const arr = [];
+  const myJSON = JSON.stringify(toDoList);
+  localStorage.setItem("toDoList", myJSON);
 
-console.log(JSON.parse(localStorage.getItem("toDoList")));
-
-
-
+  console.log(JSON.parse(localStorage.getItem("toDoList")));
 };
 
 addbutton.on("click", addtoList);
