@@ -106,10 +106,12 @@ const toDo = () => {
         listItem.text(input.val());
       });
       //hide pages and move to completed page or move to array completed
-      // we can make if (completed button);
     });
 
     tasks.on("click", () => {
+      element.isCompleted = false;
+      console.log(element);
+
       inputbuttondiv.hide();
     });
 
@@ -122,7 +124,7 @@ const toDo = () => {
 
     completed.on("click", () => {
       toDoList.forEach((element, i) => {
-        if (element.isCompleted ) {
+        if (element.isCompleted) {
           // const newDiv = $("<div></div>");
           // newDiv.appendTo(body);
 
@@ -133,7 +135,6 @@ const toDo = () => {
         }
       });
       listItem.text(element.task);
-
     });
 
     // inputDate.on("change", () => {
@@ -147,8 +148,12 @@ const toDo = () => {
 toDo();
 
 const addtoList = () => {
-  //toDoList = [];
-  toDoList.push({ task: input.val(), isCompleted: false });
+  // toDoList = [];
+  toDoList.push({
+    task: input.val(),
+    isCompleted: false,
+    date: inputDate.val(),
+  });
   toDo();
 };
 
@@ -166,13 +171,10 @@ addbutton.on("click", addtoList);
 
   */
 
-/*
- const inputVal = ()=>{
+// const inputVal = () => {
+//   toDoList = [];
+//   toDoList.push(inputDate.val());
+//   toDo();
+// };
 
-toDoList = [];
-toDoList.push({task: inputDate.val()})
-toDo()
- }
-*/
- //addbutton.on("click",inputVal);
-
+// inputDate.on("click", inputVal);
