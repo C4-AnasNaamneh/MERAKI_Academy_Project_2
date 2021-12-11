@@ -73,6 +73,9 @@ const toDo = () => {
 
     // divDate.text();
 
+
+
+
     listItem.text(element.task);
     listItem.appendTo(unorderedList);
 
@@ -88,24 +91,65 @@ const toDo = () => {
 
     deletebutton.on("click", () => {
       listItem.remove();
+
+
+toDoList.forEach((element,i)=>{
+
+  const remove = toDoList.pop();
+
+  const myJSON = JSON.stringify(remove);
+
+
+  JSON.parse(localStorage.getItem("toDoList"));
+
+    console.log( JSON.parse(localStorage.getItem("toDoList")));
+
+   localStorage.setItem("toDoList", myJSON);
+
+})
+
+       
+
+
     });
 
     updatebutton.on("click", () => {
       listItem.text(input.val());
+
+
+      toDoList.forEach((element,i)=>{
+
+        const update = toDoList.splice(i,1);
+      
+        const myJSON = JSON.stringify(update);
+      
+      
+        JSON.parse(localStorage.getItem("toDoList"));
+      
+          console.log( JSON.parse(localStorage.getItem("toDoList")));
+      
+         localStorage.setItem("toDoList", myJSON);
+      
+      })
+
+
+
+
       deletebutton.appendTo(listItem);
       updatebutton.appendTo(listItem);
       divDate.appendTo(listItem);
-
       completedbutton.appendTo(listItem);
 
       deletebutton.on("click", () => {
+      
+
         listItem.remove();
       });
 
       updatebutton.on("click", () => {
         listItem.text(input.val());
+
       });
-      //hide pages and move to completed page or move to array completed
     });
 
     tasks.on("click", () => {
@@ -155,6 +199,15 @@ const addtoList = () => {
     date: inputDate.val(),
   });
   toDo();
+
+// const arr = [];
+const myJSON = JSON.stringify(toDoList);
+localStorage.setItem("toDoList",myJSON);
+
+console.log(JSON.parse(localStorage.getItem("toDoList")));
+
+
+
 };
 
 addbutton.on("click", addtoList);
