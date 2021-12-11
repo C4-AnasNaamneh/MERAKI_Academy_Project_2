@@ -69,15 +69,15 @@ const greeting = $(`<h1>Welcome to Our App</h1>`);
 greeting.addClass("greeting")
 greeting.appendTo(RegisterDiv);
 
-const Usernameinput = $(`<br><input placeholder="Enter you Username" type = "text">`);
+const Usernameinput = $(`<br><input placeholder="Enter your Username" type = "text">`);
 Usernameinput.addClass("Usernameinput");
 Usernameinput.appendTo(RegisterDiv);
 
-const Registerinput = $(`<br><input placeholder="Enter you Email" type = "email">`);
+const Registerinput = $(`<br><input placeholder="Enter your Email" type = "email">`);
 Registerinput.addClass("Registerinput")
 Registerinput.appendTo(RegisterDiv);
 
-const rpasswordinput = $(`<br><input placeholder="Enter you Password" type = "password">`);
+const rpasswordinput = $(`<br><input placeholder="Enter your Password" type = "password">`);
 rpasswordinput.addClass("rpasswordinput")
 rpasswordinput.appendTo(RegisterDiv); 
 
@@ -102,11 +102,11 @@ const loginDiv = $("<div></div>")
 loginDiv.addClass("loginDiv")
 loginDiv.appendTo(body)
 
-const logininput = $(`<br><input placeholder="Enter you Email" type = "email">`);
+const logininput = $(`<br><input placeholder="Enter your Email" type = "email">`);
 logininput.addClass("logininput")
 logininput.appendTo(loginDiv);
 
-const passwordinput = $(`<br><input placeholder="Enter you Password" type = "password">`);
+const passwordinput = $(`<br><input placeholder="Enter your Password" type = "password">`);
 passwordinput.addClass("passwordinput")
 passwordinput.appendTo(loginDiv); 
 
@@ -125,9 +125,12 @@ logoutAnchor.appendTo(logout)
 
 
 
+
+
 inputbuttondiv.hide();
 divContainer.hide();
 loginDiv.hide();
+logoutAnchor.hide();
 
 
 
@@ -136,6 +139,7 @@ Registerbutton.on ("click" , (()=>{
   inputbuttondiv.show();
 divContainer.show();
 RegisterDiv.hide();
+logoutAnchor.show();
 
 
 }))
@@ -147,26 +151,32 @@ loginAnchor.on("click",()=>{
  RegisterDiv.hide();
   loginDiv.show();
 
+
 })
 
 loginbutton.on ("click" , (()=>{
 
   inputbuttondiv.show();
 divContainer.show();
-loginDiv.hide()
+loginDiv.hide();
+logoutAnchor.show();
+
+
+}))
+
+logoutAnchor.on ("click" , (()=>{
+
+
+  inputbuttondiv.hide();
+  divContainer.hide();
+  loginDiv.hide();
+  logoutAnchor.hide();
+  RegisterDiv.show();
+  
 
 }))
 
 
-
-
-loginbutton.on ("click" , (()=>{
-
-  inputbuttondiv.show();
-divContainer.show();
-loginDiv.hide()
-
-}))
 
 const toDo = () => {
   // toDoList =[]
