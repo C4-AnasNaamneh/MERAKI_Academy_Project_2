@@ -50,6 +50,106 @@ height: 35px;
     
     }
 
+.RegisterDiv {
+
+padding-top: 70px;
+}
+
+.greeting {
+
+ position: relative;
+top:  10px;
+left: 300px;
+}
+
+
+.Usernameinput {
+
+position: relative;
+top:  10px;
+left: 300px;
+
+}
+
+.Registerinput {
+    position: relative;
+    top:  20px;
+    left: 300px;
+
+}
+
+.rpasswordinput {
+    position: relative;
+    top:  30px;
+    left: 300px;
+
+
+}
+
+.Registerbutton {
+    position: relative;
+    top:  40px;
+    height: 35px;
+    width: 400px;
+    left: 300px;
+
+
+
+}
+
+.header2 {
+
+    position: relative;
+    top:  50px;
+    left: 300px;
+
+ 
+}
+
+.loginAnchor {
+
+    position: relative;
+    left:  10px;
+}
+
+
+.loginDiv {
+
+margin-top: 150px;    
+
+}
+
+.logininput {
+
+    position: relative;
+    top:  10px;
+    left: 300px;
+
+}
+
+.passwordinput {
+
+    position: relative;
+    top:  20px;
+    left: 300px;
+
+}
+
+
+.loginbutton {
+
+    position: relative;
+    top:  30px;
+    height: 35px;
+    width: 400px;
+    left: 300px;
+
+
+
+    
+
+}
+
 
 input {
    height: 40px;
@@ -125,5 +225,35 @@ input {
 }
 
 
+@media  (orientation: portrait) {
+
+    input {
+    
+        font-size: larger;
+    }
+    
+    
+    
+    .listItem {
+    
+        font-size: larger;
+
+    }
+
+
+    .inputDate {
+
+        font-size: larger;
+
+    }
+    
+    .addbutton {
+
+        font-size: larger;
+
+    }
+    
+    
+    }
 
 

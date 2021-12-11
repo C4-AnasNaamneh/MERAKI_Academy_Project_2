@@ -59,6 +59,110 @@ addbutton.text("add");
 addbutton.addClass("addbutton");
 addbutton.appendTo(inputbuttondiv);
 
+
+
+
+
+const RegisterDiv = $("<div></div>");
+RegisterDiv.addClass("RegisterDiv")
+RegisterDiv.appendTo(body);
+
+
+const greeting = $(`<h1>Welcome to Our App</h1>`);
+greeting.addClass("greeting")
+greeting.appendTo(RegisterDiv);
+
+const Usernameinput = $(`<br><input placeholder="Enter you Username" type = "text">`);
+Usernameinput.addClass("Usernameinput");
+Usernameinput.appendTo(RegisterDiv);
+
+const Registerinput = $(`<br><input placeholder="Enter you Email" type = "email">`);
+Registerinput.addClass("Registerinput")
+Registerinput.appendTo(RegisterDiv);
+
+const rpasswordinput = $(`<br><input placeholder="Enter you Password" type = "password">`);
+rpasswordinput.addClass("rpasswordinput")
+rpasswordinput.appendTo(RegisterDiv); 
+
+const Registerbutton = $(`<br><button>Register</button>`);
+Registerbutton.addClass("Registerbutton")
+Registerbutton.appendTo(RegisterDiv)
+
+ const header2 = $(`<h3>Already have account?</h3>`);
+
+ header2.addClass("header2")
+ header2.appendTo(RegisterDiv);
+
+
+ const loginAnchor = $("<a href =# >Login</a>");
+
+ loginAnchor.addClass("loginAnchor")
+
+ loginAnchor.appendTo(header2);
+
+
+const loginDiv = $("<div></div>")
+loginDiv.addClass("loginDiv")
+loginDiv.appendTo(body)
+
+const logininput = $(`<br><input placeholder="Enter you Email" type = "email">`);
+logininput.addClass("logininput")
+logininput.appendTo(loginDiv);
+
+const passwordinput = $(`<br><input placeholder="Enter you Password" type = "password">`);
+passwordinput.addClass("passwordinput")
+passwordinput.appendTo(loginDiv); 
+
+const loginbutton = $(`<br><button>Login</button>`);
+loginbutton.addClass("loginbutton")
+loginbutton.appendTo(loginDiv)
+
+
+inputbuttondiv.hide();
+divContainer.hide();
+loginDiv.hide();
+
+
+
+
+
+Registerbutton.on ("click" , (()=>{
+
+  inputbuttondiv.show();
+divContainer.hide();
+RegisterDiv.hide();
+
+
+}))
+
+
+loginAnchor.on("click",()=>{
+
+  
+ RegisterDiv.hide();
+  loginDiv.show();
+
+})
+
+loginbutton.on ("click" , (()=>{
+
+  inputbuttondiv.show();
+divContainer.show();
+loginDiv.hide()
+
+}))
+
+
+
+
+loginbutton.on ("click" , (()=>{
+
+  inputbuttondiv.show();
+divContainer.show();
+loginDiv.hide()
+
+}))
+
 const toDo = () => {
   // toDoList =[]
   unorderedList.text("");
@@ -117,14 +221,19 @@ const toDo = () => {
     updatebutton.on("click", () => {
       listItem.text(input.val());
 
-      storage.forEach((element, i) => {
+      //storage.push({val:input.val()});
+      //console.log(storage)
+
+
+
+     // storage.forEach((element, i) => {
         // const update = toDoList.splice(i, 1);
         //storage.push(element);
         //const myJSON = JSON.stringify(update);
         //JSON.parse(localStorage.getItem("toDoList"));
         //console.log(JSON.parse(localStorage.getItem("toDoList")));
         // localStorage.setItem("toDoList", myJSON);
-      });
+     // });
 
       deletebutton.appendTo(listItem);
       updatebutton.appendTo(listItem);
