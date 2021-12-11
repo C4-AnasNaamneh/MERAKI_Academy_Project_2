@@ -84,43 +84,46 @@ const toDo = () => {
     updatebutton.addClass("updatebutton");
     completedbutton.addClass("completedbutton");
 
-
-
-      deletebutton.on("click", () => {
+    deletebutton.on("click", () => {
       listItem.remove();
+      // localStorage.removeItem()
+      //let index = 0;
+      // const remove = storage.splice(index, 1);
+      // const myJSON = JSON.stringify(remove);
+      // localStorage.
 
-      storage.forEach((element, i) => {
-
-        console.log(storage);
-
-        const remove = toDoList.pop();
-
-        const myJSON = JSON.stringify(toDoList);
-
-        JSON.parse(localStorage.getItem("toDoList"));
-
+      for (let i = 0; i < storage.length; i++) {
+        const remove = storage.splice(i, 1);
+        const myJSON = JSON.stringify(remove);
 
         localStorage.setItem("toDoList", myJSON);
-      });
+      }
+
+      //       storage.forEach((element, i) => {
+
+      //         //console.log(storage);
+
+      //         //
+
+      //         const remove ;
+
+      //
+      // //
+      //         JSON.parse(localStorage.getItem("toDoList"));
+
+      //       });
     });
 
     updatebutton.on("click", () => {
       listItem.text(input.val());
 
       storage.forEach((element, i) => {
-
-
-       // const update = toDoList.splice(i, 1);
-
-       //storage.push(element);
-
+        // const update = toDoList.splice(i, 1);
+        //storage.push(element);
         //const myJSON = JSON.stringify(update);
-
         //JSON.parse(localStorage.getItem("toDoList"));
-
         //console.log(JSON.parse(localStorage.getItem("toDoList")));
-
-       // localStorage.setItem("toDoList", myJSON);
+        // localStorage.setItem("toDoList", myJSON);
       });
 
       deletebutton.appendTo(listItem);
@@ -172,8 +175,6 @@ const toDo = () => {
       });
       listItem.text(element.task);
     });
-
-   
   });
 };
 toDo();
@@ -195,4 +196,3 @@ const addtoList = () => {
 };
 
 addbutton.on("click", addtoList);
-
