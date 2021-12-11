@@ -1,5 +1,5 @@
 let toDoList = [];
-let storge = JSON.parse(localStorage.getItem("toDoList"));
+let storage = JSON.parse(localStorage.getItem("toDoList"));
 const body = $("body");
 
 const container = $("#container");
@@ -71,8 +71,6 @@ const toDo = () => {
 
     const divDate = $(`<div>${element.date}</div>`);
 
-    // divDate.text();
-
     listItem.text(element.task);
     listItem.appendTo(unorderedList);
 
@@ -86,17 +84,19 @@ const toDo = () => {
     updatebutton.addClass("updatebutton");
     completedbutton.addClass("completedbutton");
 
-    deletebutton.on("click", () => {
+
+
+      deletebutton.on("click", () => {
       listItem.remove();
 
       storage.forEach((element, i) => {
-        const remove = toDoList.pop();
 
-        const myJSON = JSON.stringify(remove);
+        //const remove = toDoList.pop();
+
+        const myJSON = JSON.stringify("");
 
         JSON.parse(localStorage.getItem("toDoList"));
 
-        console.log(JSON.parse(localStorage.getItem("toDoList")));
 
         localStorage.setItem("toDoList", myJSON);
       });
@@ -105,16 +105,19 @@ const toDo = () => {
     updatebutton.on("click", () => {
       listItem.text(input.val());
 
-      toDoList.forEach((element, i) => {
-        const update = toDoList.splice(i, 1);
 
-        const myJSON = JSON.stringify(update);
+      storage.forEach((element, i) => {
+       // const update = toDoList.splice(i, 1);
 
-        JSON.parse(localStorage.getItem("toDoList"));
+       //storage.push(element);
 
-        console.log(JSON.parse(localStorage.getItem("toDoList")));
+        //const myJSON = JSON.stringify(update);
 
-        localStorage.setItem("toDoList", myJSON);
+        //JSON.parse(localStorage.getItem("toDoList"));
+
+        //console.log(JSON.parse(localStorage.getItem("toDoList")));
+
+       // localStorage.setItem("toDoList", myJSON);
       });
 
       deletebutton.appendTo(listItem);
@@ -167,12 +170,7 @@ const toDo = () => {
       listItem.text(element.task);
     });
 
-    // inputDate.on("change", () => {
-    //   //listItem.text(inputDate.val());
-
-    //        // inputDate.val().appendTo(divDate);
-
-    // });
+   
   });
 };
 toDo();
@@ -195,22 +193,3 @@ const addtoList = () => {
 
 addbutton.on("click", addtoList);
 
-/*let completedList = [
-    
-    {task: input.val(),id: "completed"},
-    {task: input.val(),id: "completed"},
-    {task: input.val(),id: "completed"},
-    {task: input.val(),id: "completed"},
-
- 
- ]
-
-  */
-
-// const inputVal = () => {
-//   toDoList = [];
-//   toDoList.push(inputDate.val());
-//   toDo();
-// };
-
-// inputDate.on("click", inputVal);
