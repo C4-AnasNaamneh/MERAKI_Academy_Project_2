@@ -230,6 +230,17 @@ input {
 
 }
 
+@media all and  (max-width: 500px) {
+
+    #container { 
+        display: flex;
+     gap: 30px;
+ justify-content: end;
+ background-color: #030F29;
+ height: 35px;
+    }
+ 
+ }
 
 @media  (orientation: portrait) {
 
@@ -237,8 +248,6 @@ input {
     
         font-size: larger;
     }
-    
-    
     
     .listItem {
     
@@ -259,6 +268,28 @@ input {
 
     }
     
+    .deletebutton {
+
+        height: 40px;
+        width: 100px;
+        background-color: red;
+    
+    }
+    
+    .updatebutton {
+    
+        height: 40px;
+        width: 100px;
+        background-color: blue;
+    }
+    
+    
+    .completedbutton {
+    
+        height: 40px;
+        width: 100px;
+        background-color: green;
+    }
     
     }
 
