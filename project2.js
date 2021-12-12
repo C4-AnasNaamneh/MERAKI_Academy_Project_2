@@ -199,11 +199,31 @@ logoutAnchor.on ("click" , (()=>{
 }))
 
 
+// storage.forEach((element,i)=>{
+
+
+
+// const add = element.login ;
+// console.log(element.login);
+
+//         const myJSON = JSON.stringify(add);
+
+//         localStorage.setItem("toDoList", myJSON);
+
+// })
+
+
+
+
+
+
 
 const toDo = () => {
   // toDoList =[]
   unorderedList.text("");
   toDoList.forEach((element, i) => {
+
+
     let listItem = $("<li></li>");
     listItem.addClass("listItem");
     const deletebutton = $(`<i class="fas fa-trash-alt"></i>`);
@@ -222,6 +242,9 @@ const toDo = () => {
 
     divDate.appendTo(listItem);
 
+
+
+
     deletebutton.appendTo(listItem);
     updatebutton.appendTo(listItem);
     completedbutton.appendTo(listItem);
@@ -229,6 +252,10 @@ const toDo = () => {
     deletebutton.addClass("deletebutton");
     updatebutton.addClass("updatebutton");
     completedbutton.addClass("completedbutton");
+
+    if (element.isCompleted=== false) { 
+
+
 
     deletebutton.on("click", () => {
       listItem.remove();
@@ -303,12 +330,17 @@ const toDo = () => {
 
     tasks.on("click", () => {
       element.isCompleted = false;
+      if (element.isCompleted !== true){ 
       console.log(element);
    inputbuttondiv.hide();
   
    Pending.appendTo(listItem);
    Pending.show();
+
+      }
     });
+
+
 
 Pending.on("click",()=>{
 
@@ -318,27 +350,58 @@ Pending.on("click",()=>{
 
 })
 
+ 
+    }
 
     completedbutton.on("click", () => {
-      element.isCompleted = true;
+    
+
+        element.isCompleted = true;
       console.log(element);
       //listItem.text(false);
-      listItem.hide(); //hide completed  from here
+      if (element.isCompleted = true) {
+
+        listItem.hide();
+      }
+      //hide completed  from here
+
+
+
+      
+      
     });
 
     completed.on("click", () => {
-      toDoList.forEach((element, i) => {
-        if (element.isCompleted) {
-          // const newDiv = $("<div></div>");
-          // newDiv.appendTo(body);
+     
+      // toDoList.forEach((element, i) => {
+      //   if (element.isCompleted) {
+      //     // const newDiv = $("<div></div>");
+      //     // newDiv.appendTo(body);
+      //     // console.log(element);
+      //     listItem.show();
+      //     // listItem.text(element.isCompleted);
 
-          listItem.show();
-          // listItem.text(element.isCompleted);
+      //     console.log(element);
+      //   }
+      // listItem.text(element.task);
 
-          console.log(element);
-        }
-      });
-      listItem.text(element.task);
+      // });
+
+
+
+toDoList.filter ((element,i)=>{
+
+if (element.isCompleted === true) {
+
+  listItem.text(element.task)
+
+  listItem.show()
+
+}
+})
+
+
+      
     });
   });
 };
@@ -350,8 +413,56 @@ const addtoList = () => {
     task: input.val(),
     isCompleted: false,
     date: inputDate.val(),
+    /*login: [
+      
+      Registerbutton.on ("click" , (()=>{
+
+      inputbuttondiv.show();
+    divContainer.show();
+    RegisterDiv.hide();
+    logoutAnchor.show();
+    
+    
+    })),
+    
+    
+    loginAnchor.on("click",()=>{
+    
+      
+     RegisterDiv.hide();
+      loginDiv.show();
+    
+    
+    }),
+    
+    loginbutton.on ("click" , (()=>{
+    
+      inputbuttondiv.show();
+    divContainer.show();
+    loginDiv.hide();
+    logoutAnchor.show();
+    
+    
+    })),
+    
+    logoutAnchor.on ("click" , (()=>{
+    
+    
+      inputbuttondiv.hide();
+      divContainer.hide();
+      loginDiv.hide();
+      logoutAnchor.hide();
+      RegisterDiv.show();
+      
+    
+    }))
+    ]*/
   });
+
+
   toDo();
+
+  
 
   // const arr = [];
   const myJSON = JSON.stringify(toDoList);
@@ -361,10 +472,6 @@ const addtoList = () => {
 };
 
 addbutton.on("click", addtoList);
-
-
-
-
 
 
 toggle.on("click",()=>{
@@ -377,3 +484,4 @@ toggle.on("click",()=>{
   myFunction()
 
 })
+
