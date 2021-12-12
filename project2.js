@@ -1,5 +1,6 @@
-let toDoList = [];
-let storage = JSON.parse(localStorage.getItem("toDoList"));
+let toDos = ["wakeup","code","eat breakfast"];
+const localStorage = window.localStorage;
+//let storage = JSON.parse(localStorage.getItem("toDosArray"));
 const body = $("body");
 
 const container = $("#container");
@@ -183,7 +184,10 @@ logoutAnchor.on("click", () => {
 
 const toDo = () => {
   unorderedList.text("");
-  toDoList.forEach((element, i) => {
+
+  toDos = JSON.parse(localStorage.getItem("toDosArray"));
+
+  toDos.forEach((element, i) => {
     let listItem = $("<li></li>");
     listItem.addClass("listItem");
     const deletebutton = $(`<i class="fas fa-trash-alt"></i>`);
@@ -212,77 +216,89 @@ const toDo = () => {
     updatebutton.addClass("updatebutton");
     completedbutton.addClass("completedbutton");
 
-    if (element.isCompleted === false) {
+    deletebutton.on("click", () => {
+      toDos.forEach((todo) => {
+        if (todo === element) {
+          toDos.splice(i, 1);
+        }
+      });
+      localStorage.setItem("toDosArray", JSON.stringify(toDos));
+
+      listItem.remove();
+
+      // for (let i = 0; i < storage.length; i++) {
+      //   const remove = storage.splice(i, 1);
+      //   const myJSON = JSON.stringify(remove);
+
+      //   localStorage.setItem("toDosArray", toDos);
+      // }
+    });
+
+    updatebutton.on("click", () => {
+      //listItem.text(input.val());
+
+      toDos.forEach((todo, i) => {
+        if (element === todo) {
+          toDos[i] = input.val();
+        }
+      });
+      //localStorage.setItem("toDosArray", JSON.stringify(toDos));
+
+      deletebutton.appendTo(listItem);
+      updatebutton.appendTo(listItem);
+      divDate.appendTo(listItem);
+      completedbutton.appendTo(listItem);
+
       deletebutton.on("click", () => {
         listItem.remove();
-
-        for (let i = 0; i < storage.length; i++) {
-          const remove = storage.splice(i, 1);
-          const myJSON = JSON.stringify(remove);
-
-          localStorage.setItem("toDoList", myJSON);
-        }
       });
 
       updatebutton.on("click", () => {
         listItem.text(input.val());
-
-        deletebutton.appendTo(listItem);
-        updatebutton.appendTo(listItem);
         divDate.appendTo(listItem);
-        completedbutton.appendTo(listItem);
-
-        deletebutton.on("click", () => {
-          listItem.remove();
-        });
-
-        updatebutton.on("click", () => {
-          listItem.text(input.val());
-          divDate.appendTo(listItem);
-        });
-
-        completedbutton.on("click", () => {
-          element.isCompleted = true;
-          console.log(element);
-
-          listItem.hide();
-        });
       });
 
-      tasks.on("click", () => {
-        element.isCompleted = false;
-        if (element.isCompleted !== true) {
-          console.log(element);
-          inputbuttondiv.hide();
+      completedbutton.on("click", () => {
+        element.isCompleted = true;
+        console.log(element);
 
-          Pending.appendTo(listItem);
-          Pending.show();
-        }
+        listItem.hide();
+      });
+    });
 
-        completed.appendTo(container);
+    tasks.on("click", () => {
+      element.isCompleted = false;
+      if (element.isCompleted !== true) {
+        console.log(element);
+        inputbuttondiv.hide();
 
-        completed.on("click", () => {
-          let answer = toDoList.filter((element, i) => {
-            return element.isCompleted === true;
-          });
+        Pending.appendTo(listItem);
+        Pending.show();
+      }
 
-          listItem.show();
+      completed.appendTo(container);
 
-          answer.forEach((element, i) => {
-            toDoList = [];
-            const value = element.task;
-            const p = $(`<p>${value}</p>`);
-            p.addClass(p);
-            p.appendTo(divContainer);
-          });
+      completed.on("click", () => {
+        let answer = toDos.filter((element, i) => {
+          return element.isCompleted === true;
+        });
+
+        listItem.show();
+
+        answer.forEach((element, i) => {
+          toDos = [];
+          const value = element.task;
+          const p = $(`<p>${value}</p>`);
+          p.addClass(p);
+          p.appendTo(divContainer);
         });
       });
+    });
 
-      Pending.on("click", () => {
-        inputbuttondiv.show();
-        Pending.hide();
-      });
-    }
+    Pending.on("click", () => {
+      inputbuttondiv.show();
+      Pending.hide();
+    });
 
     CompletedL.on("click", () => {
       inputbuttondiv.show();
@@ -299,7 +315,7 @@ const toDo = () => {
     });
 
     completed.on("click", () => {
-      let answer = toDoList.filter((element, i) => {
+      let answer = toDos.filter((element, i) => {
         return element.isCompleted === true;
       });
       CompletedL.appendTo(listItem);
@@ -309,7 +325,7 @@ const toDo = () => {
       CompletedL.show();
 
       answer.forEach((element, i) => {
-        toDoList = [];
+        toDos = [];
         const value = element.task;
         const p = $(`<p>${value}</p>`);
         p.addClass(p);
@@ -321,8 +337,8 @@ const toDo = () => {
 toDo();
 
 const addtoList = () => {
-  // toDoList = [];
-  toDoList.push({
+  // toDos = [];
+  toDos.push({
     task: input.val(),
     isCompleted: false,
     date: inputDate.val(),
@@ -330,10 +346,9 @@ const addtoList = () => {
 
   toDo();
 
-  const myJSON = JSON.stringify(toDoList);
-  localStorage.setItem("toDoList", myJSON);
+  localStorage.setItem("toDosArray", JSON.stringify(toDos));
 
-  JSON.parse(localStorage.getItem("toDoList"));
+  toDos= JSON.parse(localStorage.getItem("toDosArray"));
 };
 
 addbutton.on("click", addtoList);
