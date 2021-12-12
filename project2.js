@@ -55,12 +55,10 @@ const input = $(`<input placeholder="Add New Task...">`);
 input.appendTo(inputbuttondiv);
 
 const inputDate = $("<input  type = date></input");
-//const inputDate = $(`<i class='far fa-calendar'  type = 'date'></i>`)
 
 inputDate.addClass("inputDate");
 inputDate.appendTo(inputbuttondiv);
 
-//const addbutton = $("<button></button>");
 const addbutton = $(`<i class="fas fa-plus-circle"></i>`);
 addbutton.text("");
 addbutton.addClass("addbutton");
@@ -70,14 +68,13 @@ const RegisterDiv = $("<div></div>");
 RegisterDiv.addClass("RegisterDiv");
 RegisterDiv.appendTo(body);
 
-
 const image = $(`<img>`);
 image.addClass("image");
-image.attr("src", "https://www.heropa.com/wp-content/uploads//2021/03/Secure-login-bro.svg");
+image.attr(
+  "src",
+  "https://www.heropa.com/wp-content/uploads//2021/03/Secure-login-bro.svg"
+);
 image.appendTo(RegisterDiv);
-
-
-
 
 const greeting = $(`<h1>Welcome to Our App</h1>`);
 greeting.addClass("greeting");
@@ -120,12 +117,13 @@ const loginDiv = $("<div></div>");
 loginDiv.addClass("loginDiv");
 loginDiv.appendTo(body);
 
-
 const image2 = $(`<img>`);
 image2.addClass("image");
-image2.attr("src", "https://www.heropa.com/wp-content/uploads//2021/03/Secure-login-bro.svg");
+image2.attr(
+  "src",
+  "https://www.heropa.com/wp-content/uploads//2021/03/Secure-login-bro.svg"
+);
 image2.appendTo(loginDiv);
-
 
 const logininput = $(
   `<br><input placeholder="Enter your Email" type = "email">`
@@ -156,7 +154,6 @@ divContainer.hide();
 loginDiv.hide();
 logoutAnchor.hide();
 
-
 Registerbutton.on("click", () => {
   inputbuttondiv.show();
   divContainer.show();
@@ -184,19 +181,9 @@ logoutAnchor.on("click", () => {
   RegisterDiv.show();
 });
 
-// storage.forEach((element,i)=>{
 
-// const add = element.login ;
-// console.log(element.login);
-
-//         const myJSON = JSON.stringify(add);
-
-//         localStorage.setItem("toDoList", myJSON);
-
-// })
 
 const toDo = () => {
-  // toDoList =[]
   unorderedList.text("");
   toDoList.forEach((element, i) => {
     let listItem = $("<li></li>");
@@ -226,12 +213,7 @@ const toDo = () => {
     if (element.isCompleted === false) {
       deletebutton.on("click", () => {
         listItem.remove();
-        // localStorage.removeItem()
-        //let index = 0;
-        // const remove = storage.splice(index, 1);
-        // const myJSON = JSON.stringify(remove);
-        // localStorage.
-
+       
         for (let i = 0; i < storage.length; i++) {
           const remove = storage.splice(i, 1);
           const myJSON = JSON.stringify(remove);
@@ -239,35 +221,13 @@ const toDo = () => {
           localStorage.setItem("toDoList", myJSON);
         }
 
-        //       storage.forEach((element, i) => {
-
-        //         //console.log(storage);
-
-        //         //
-
-        //         const remove ;
-
-        //
-        // //
-        //         JSON.parse(localStorage.getItem("toDoList"));
-
-        //       });
+        
       });
 
       updatebutton.on("click", () => {
         listItem.text(input.val());
 
-        //storage.push({val:input.val()});
-        //console.log(storage)
-
-        // storage.forEach((element, i) => {
-        // const update = toDoList.splice(i, 1);
-        //storage.push(element);
-        //const myJSON = JSON.stringify(update);
-        //JSON.parse(localStorage.getItem("toDoList"));
-        //console.log(JSON.parse(localStorage.getItem("toDoList")));
-        // localStorage.setItem("toDoList", myJSON);
-        // });
+       
 
         deletebutton.appendTo(listItem);
         updatebutton.appendTo(listItem);
@@ -286,8 +246,8 @@ const toDo = () => {
         completedbutton.on("click", () => {
           element.isCompleted = true;
           console.log(element);
-          //listItem.text(false);
-          listItem.hide(); //hide completed  from here
+          
+          listItem.hide(); 
         });
       });
 
@@ -299,53 +259,26 @@ const toDo = () => {
 
           Pending.appendTo(listItem);
           Pending.show();
-          
         }
 
         completed.appendTo(container);
 
         completed.on("click", () => {
-
-
-
-         
           let answer = toDoList.filter((element, i) => {
             return element.isCompleted === true;
-    
-            
           });
-    
-
 
           listItem.show();
 
-
-
           answer.forEach((element, i) => {
-          toDoList=[];
+            toDoList = [];
             const value = element.task;
-           // console.log(value);
-          const p = $(`<p>${value}</p>`);
-          p.addClass(p);
-          p.appendTo(divContainer);
-          
-    
+            // console.log(value);
+            const p = $(`<p>${value}</p>`);
+            p.addClass(p);
+            p.appendTo(divContainer);
           });
-    
         });
-
-
-
-
-
-
-
-
-
-
-
-
-
       });
 
       Pending.on("click", () => {
@@ -363,27 +296,19 @@ const toDo = () => {
     });
 
     completed.on("click", () => {
-      
       let answer = toDoList.filter((element, i) => {
         return element.isCompleted === true;
-
-        
       });
 
-     
-      listItem.hide()
+      listItem.hide();
 
       answer.forEach((element, i) => {
-      toDoList=[];
+        toDoList = [];
         const value = element.task;
-       // console.log(value);
-      const p = $(`<p>${value}</p>`);
-      p.addClass(p);
-      p.appendTo(divContainer);
-      
-
+        const p = $(`<p>${value}</p>`);
+        p.addClass(p);
+        p.appendTo(divContainer);
       });
-
     });
   });
 };
@@ -395,59 +320,16 @@ const addtoList = () => {
     task: input.val(),
     isCompleted: false,
     date: inputDate.val(),
-    /*login: [
-      
-      Registerbutton.on ("click" , (()=>{
-
-      inputbuttondiv.show();
-    divContainer.show();
-    RegisterDiv.hide();
-    logoutAnchor.show();
-    
-    
-    })),
-    
-    
-    loginAnchor.on("click",()=>{
-    
-      
-     RegisterDiv.hide();
-      loginDiv.show();
-    
-    
-    }),
-    
-    loginbutton.on ("click" , (()=>{
-    
-      inputbuttondiv.show();
-    divContainer.show();
-    loginDiv.hide();
-    logoutAnchor.show();
-    
-    
-    })),
-    
-    logoutAnchor.on ("click" , (()=>{
-    
-    
-      inputbuttondiv.hide();
-      divContainer.hide();
-      loginDiv.hide();
-      logoutAnchor.hide();
-      RegisterDiv.show();
-      
-    
-    }))
-    ]*/
+   
   });
 
   toDo();
 
-  // const arr = [];
+
   const myJSON = JSON.stringify(toDoList);
   localStorage.setItem("toDoList", myJSON);
 
-  console.log(JSON.parse(localStorage.getItem("toDoList")));
+  JSON.parse(localStorage.getItem("toDoList"));
 };
 
 addbutton.on("click", addtoList);

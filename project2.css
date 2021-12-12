@@ -1,364 +1,251 @@
 * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        height: auto;
-        width: auto;
-        text-align: center;
-        
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  height: auto;
+  width: auto;
+  text-align: center;
+}
 
-      
-      
-      }
+body {
+  background-color: black;
+  color: white;
+}
 
-
-      body {
-        background-color: black;
-        color: white;
-        
-       
-      }
-      
-      .dark-mode {
-        background-color: white;
-      color: black;
-      }
-
-     
-
+.dark-mode {
+  background-color: white;
+  color: black;
+}
 
 #container {
-
-    display: flex;
-    gap: 30px;
-justify-content: end;
-background-color: #030F29;
-height: 35px;
-
-
-
+  display: flex;
+  gap: 30px;
+  justify-content: end;
+  background-color: #030f29;
+  height: 35px;
 }
 
- .anchor {
-
-    text-decoration: none;
-    color: #EBFEE9;
-    font-size: large;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    padding-left: 20px;
-
+.anchor {
+  text-decoration: none;
+  color: #ebfee9;
+  font-size: large;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding-left: 20px;
 }
-
 
 .p {
-
-    position: relative;
-    top: 20px;;
-    color: green;
-
-
+  position: relative;
+  top: 20px;
+  color: green;
 }
 
 .completed {
-
-    position: relative;
-    right:30px;
+  position: relative;
+  right: 30px;
 }
-
-
-
 
 .title {
+  display: flex;
+  position: relative;
+  right: 650px;
+  color: white;
+}
 
-    display: flex; 
-    position: relative ;
-    right: 650px;
-    color: white;
-    
-    }
+.mode {
+  text-decoration: none;
+  color: #ebfee9;
+  font-size: large;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  position: relative;
+  right: 30px;
+}
 
-
-
-    .mode {
-
-        text-decoration: none;
-        color: #EBFEE9;
-        font-size: large;
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
-        position: relative;
-        right: 30px;
-
-    }
-
-    .Pending {
-
-        text-decoration: none;
-        background-color: white;
-        color:orangered;
-        font-size: larger;
-        
-    }
-
-
-
-
-
+.Pending {
+  text-decoration: none;
+  background-color: white;
+  color: orangered;
+  font-size: larger;
+}
 
 .greeting {
-
- position: relative;
-bottom:380px;
-left: 300px;
+  position: relative;
+  bottom: 380px;
+  left: 300px;
 }
-
 
 .image {
-
-    position: relative;
-    right: 400px;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 400px;
-    width: 400px;
-    background-position: left;
+  position: relative;
+  right: 400px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 400px;
+  width: 400px;
+  background-position: left;
 }
 
-
 .Usernameinput {
-
-    position: relative;
-    bottom:  380px;
-    left: 300px;
-    
-    }
+  position: relative;
+  bottom: 380px;
+  left: 300px;
+}
 
 .Registerinput {
-    position: relative;
-    bottom:  360px;
-    left: 300px;
-
+  position: relative;
+  bottom: 360px;
+  left: 300px;
 }
 
 .rpasswordinput {
-    position: relative;
-    bottom:  340px;
-    left: 300px;
-
-
+  position: relative;
+  bottom: 340px;
+  left: 300px;
 }
 
 .Registerbutton {
-    position: relative;
-    bottom:  320px;
-    height: 35px;
-    width: 400px;
-    left: 300px;
-
-
-
+  position: relative;
+  bottom: 320px;
+  height: 35px;
+  width: 400px;
+  left: 300px;
 }
 
 .header2 {
-
-    position: relative;
-    bottom:  300px;
-    left: 300px;
-
- 
+  position: relative;
+  bottom: 300px;
+  left: 300px;
 }
 
 .loginAnchor {
-
-    position: relative;
-    left:  10px;
+  position: relative;
+  left: 10px;
 }
 
-
-
-
-
 .logininput {
-
-    position: relative;
-bottom: 320px;
-    left: 300px;
-
-
+  position: relative;
+  bottom: 320px;
+  left: 300px;
 }
 
 .passwordinput {
-
-    position: relative;
-bottom: 300px;
-    left: 300px;
-
-
+  position: relative;
+  bottom: 300px;
+  left: 300px;
 }
 
-
 .loginbutton {
-
-    position: relative;
-    bottom: 280px;
-    height: 35px;
-    width: 400px;
-    left: 300px;
+  position: relative;
+  bottom: 280px;
+  height: 35px;
+  width: 400px;
+  left: 300px;
 }
 
 .logoutAnchor {
-
-    text-decoration: none;
-    position: relative;
-    right: 10px;
-    color: #EBFEE9;
-    font-size: large;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-
+  text-decoration: none;
+  position: relative;
+  right: 10px;
+  color: #ebfee9;
+  font-size: large;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-
 input {
-   height: 40px;
-    width: 400px;
- position: static;
+  height: 40px;
+  width: 400px;
+  position: static;
 }
 
 .inputDate {
-
-    position: static;
-
+  position: static;
 }
-
 
 .addbutton {
+  padding-top: 11.9px;
 
-    padding-top: 11.9px;
-
-    height: 40px;
-    width: 50px;
-    background-color: rgb(18, 15, 185);
-    position: static;
-    margin-left: 20px;
-
-
+  height: 40px;
+  width: 50px;
+  background-color: rgb(18, 15, 185);
+  position: static;
+  margin-left: 20px;
 }
 
-
 .deletebutton {
-
-    height: 25px;
-    width: 25px;
-    background-color: red;
-    margin-left: 20px;
-
+  height: 25px;
+  width: 25px;
+  background-color: red;
+  margin-left: 20px;
 }
 
 .updatebutton {
-
-    height: 25px;
-    width: 25px;
-    background-color: blue;
-    margin-left: 20px;
-
+  height: 25px;
+  width: 25px;
+  background-color: blue;
+  margin-left: 20px;
 }
-
 
 .completedbutton {
-
-    height: 25px;
-    width: 25px;
-    background-color: green;
-    margin-left: 20px;
-
+  height: 25px;
+  width: 25px;
+  background-color: green;
+  margin-left: 20px;
 }
 
-
-
 .divContainer {
-
-    position:relative;
-    top: 80px;
-
+  position: relative;
+  top: 80px;
 }
 
 .inputbuttondiv {
-
-
-    position:relative;
-    top: 80px;
+  position: relative;
+  top: 80px;
 }
-
-
-
 
 .listItem {
-
-    padding-top: 20px;
-    
-
+  padding-top: 20px;
 }
 
-@media all and  (max-width: 500px) {
+@media all and (max-width: 500px) {
+  #container {
+    display: flex;
+    gap: 30px;
+    justify-content: end;
+    background-color: #030f29;
+    height: 35px;
+  }
+}
 
-    #container { 
-        display: flex;
-     gap: 30px;
- justify-content: end;
- background-color: #030F29;
- height: 35px;
-    }
- 
- }
+@media (orientation: portrait) {
+  input {
+    font-size: larger;
+  }
 
-@media  (orientation: portrait)  {
+  .listItem {
+    font-size: larger;
+  }
 
-    input {
-    
-        font-size: larger;
-    }
-    
-    .listItem {
-    
-        font-size: larger;
+  .inputDate {
+    font-size: larger;
+  }
 
-    }
+  .addbutton {
+    font-size: larger;
+  }
 
+  .deletebutton {
+    height: 40px;
+    width: 100px;
+    background-color: red;
+  }
 
-    .inputDate {
+  .updatebutton {
+    height: 40px;
+    width: 100px;
+    background-color: blue;
+  }
 
-        font-size: larger;
-
-    }
-    
-    .addbutton {
-
-        font-size: larger;
-
-    }
-    
-    .deletebutton {
-
-        height: 40px;
-        width: 100px;
-        background-color: red;
-    
-    }
-    
-    .updatebutton {
-    
-        height: 40px;
-        width: 100px;
-        background-color: blue;
-    }
-    
-    
-    .completedbutton {
-    
-        height: 40px;
-        width: 100px;
-        background-color: green;
-    }
-
-    }
-
-
+  .completedbutton {
+    height: 40px;
+    width: 100px;
+    background-color: green;
+  }
+}
