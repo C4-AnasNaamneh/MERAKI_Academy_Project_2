@@ -44,6 +44,16 @@ height: 35px;
 
 }
 
+
+.p {
+
+    position: relative;
+    top: 20px;;
+    color: green;
+
+
+}
+
 .completed {
 
     position: relative;

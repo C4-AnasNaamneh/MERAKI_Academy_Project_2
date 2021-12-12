@@ -282,7 +282,53 @@ const toDo = () => {
 
           Pending.appendTo(listItem);
           Pending.show();
+          
         }
+
+        completed.appendTo(container);
+
+        completed.on("click", () => {
+
+
+
+         
+          let answer = toDoList.filter((element, i) => {
+            return element.isCompleted === true;
+    
+            
+          });
+    
+
+
+          listItem.show();
+
+
+
+          answer.forEach((element, i) => {
+          toDoList=[];
+            const value = element.task;
+           // console.log(value);
+          const p = $(`<p>${value}</p>`);
+          p.addClass(p);
+          p.appendTo(divContainer);
+          
+    
+          });
+    
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
       });
 
       Pending.on("click", () => {
@@ -294,53 +340,33 @@ const toDo = () => {
     completedbutton.on("click", () => {
       element.isCompleted = true;
       console.log(element);
-      //listItem.text(false);
       if ((element.isCompleted = true)) {
         listItem.hide();
       }
-      //hide completed  from here
     });
 
     completed.on("click", () => {
-      // toDoList.forEach((element, i) => {
-      //   if (element.isCompleted) {
-      //     // const newDiv = $("<div></div>");
-      //     // newDiv.appendTo(body);
-      //     // console.log(element);
-      //     listItem.show();
-      //     // listItem.text(element.isCompleted);
-
-      //     console.log(element);
-      //   }
-      // listItem.text(element.task);
-
-      // });
-
-      const answer = toDoList.filter((element, i) => {
-
-
-
+      
+      let answer = toDoList.filter((element, i) => {
         return element.isCompleted === true;
 
-        // listItem.text(element.task)
+        
+      });
 
-        //listItem.show()
+     
+      listItem.hide()
+
+      answer.forEach((element, i) => {
+      toDoList=[];
+        const value = element.task;
+       // console.log(value);
+      const p = $(`<p>${value}</p>`);
+      p.addClass(p);
+      p.appendTo(divContainer);
+      
 
       });
 
-      answer.forEach((element,i)=>{
-
-        console.log(answer);
-        const value = element.task;
-  console.log(value);
-
-         return value;
-
-      //return element;
-     
-
-
-      })
     });
   });
 };
