@@ -305,6 +305,7 @@ const toDo = () => {
       CompletedL.appendTo(listItem);
 
       listItem.hide();
+      Pending.hide();
       CompletedL.show();
 
       answer.forEach((element, i) => {
