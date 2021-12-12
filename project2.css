@@ -78,6 +78,10 @@ height: 35px;
     .Pending {
 
         text-decoration: none;
+        background-color: white;
+        color:orangered;
+        font-size: larger;
+        
     }
 
 
