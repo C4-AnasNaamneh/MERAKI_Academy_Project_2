@@ -28,11 +28,18 @@ const anchor1 = $("<a href =# ></a>");
 anchor1.text("Completed");
 anchor1.appendTo(completed);
 
+
 tasks.addClass("tasks");
 completed.addClass("completed");
 
 anchor.addClass("anchor");
 anchor1.addClass("anchor");
+
+
+const toggle = $(`<a href = "#">Dark/Light </a>`)
+toggle.addClass("mode")
+toggle.appendTo(container);
+
 
 const divContainer = $("<div></div>");
 divContainer.addClass("divContainer");
@@ -138,6 +145,9 @@ inputbuttondiv.hide();
 divContainer.hide();
 loginDiv.hide();
 logoutAnchor.hide();
+
+
+
 
 
 
@@ -327,3 +337,19 @@ const addtoList = () => {
 };
 
 addbutton.on("click", addtoList);
+
+
+
+
+
+
+toggle.on("click",()=>{
+
+  function myFunction() {
+    var element = document.body;
+    element.classList.toggle("dark-mode");
+  }
+  
+  myFunction()
+
+})
