@@ -181,8 +181,6 @@ logoutAnchor.on("click", () => {
   RegisterDiv.show();
 });
 
-
-
 const toDo = () => {
   unorderedList.text("");
   toDoList.forEach((element, i) => {
@@ -196,6 +194,10 @@ const toDo = () => {
     const Pending = $(`<a href ="#">Pending</a>`);
     Pending.addClass("Pending");
     Pending.appendTo(listItem);
+
+    const CompletedL = $(`<a href ="#">Completed</a>`);
+    CompletedL.addClass("complete");
+    CompletedL.appendTo(listItem);
 
     listItem.text(element.task);
     listItem.appendTo(unorderedList);
@@ -213,21 +215,17 @@ const toDo = () => {
     if (element.isCompleted === false) {
       deletebutton.on("click", () => {
         listItem.remove();
-       
+
         for (let i = 0; i < storage.length; i++) {
           const remove = storage.splice(i, 1);
           const myJSON = JSON.stringify(remove);
 
           localStorage.setItem("toDoList", myJSON);
         }
-
-        
       });
 
       updatebutton.on("click", () => {
         listItem.text(input.val());
-
-       
 
         deletebutton.appendTo(listItem);
         updatebutton.appendTo(listItem);
@@ -246,8 +244,8 @@ const toDo = () => {
         completedbutton.on("click", () => {
           element.isCompleted = true;
           console.log(element);
-          
-          listItem.hide(); 
+
+          listItem.hide();
         });
       });
 
@@ -273,7 +271,6 @@ const toDo = () => {
           answer.forEach((element, i) => {
             toDoList = [];
             const value = element.task;
-            // console.log(value);
             const p = $(`<p>${value}</p>`);
             p.addClass(p);
             p.appendTo(divContainer);
@@ -287,8 +284,14 @@ const toDo = () => {
       });
     }
 
+    CompletedL.on("click", () => {
+      inputbuttondiv.show();
+      CompletedL.hide();
+    });
+
     completedbutton.on("click", () => {
       element.isCompleted = true;
+
       console.log(element);
       if ((element.isCompleted = true)) {
         listItem.hide();
@@ -299,8 +302,10 @@ const toDo = () => {
       let answer = toDoList.filter((element, i) => {
         return element.isCompleted === true;
       });
+      CompletedL.appendTo(listItem);
 
       listItem.hide();
+      CompletedL.show();
 
       answer.forEach((element, i) => {
         toDoList = [];
@@ -320,11 +325,9 @@ const addtoList = () => {
     task: input.val(),
     isCompleted: false,
     date: inputDate.val(),
-   
   });
 
   toDo();
-
 
   const myJSON = JSON.stringify(toDoList);
   localStorage.setItem("toDoList", myJSON);

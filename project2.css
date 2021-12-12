@@ -35,7 +35,7 @@ body {
 
 .p {
   position: relative;
-  top: 20px;
+  top: 50px;
   color: green;
 }
 
@@ -57,13 +57,20 @@ body {
   font-size: large;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   position: relative;
-  right: 30px;
+  right: 20px;
 }
 
 .Pending {
   text-decoration: none;
   background-color: white;
   color: orangered;
+  font-size: larger;
+}
+
+.complete {
+  text-decoration: none;
+  background-color: rgb(51, 6, 6);
+  color: green;
   font-size: larger;
 }
 
