@@ -50,6 +50,11 @@ inputbuttondiv.appendTo(body);
 
 divContainer.appendTo(body);
 
+
+
+
+
+
 const unorderedList = $("<ul></ul>");
 unorderedList.addClass("unorderedList");
 unorderedList.appendTo(divContainer);
@@ -204,8 +209,13 @@ const toDo = () => {
     const deletebutton = $(`<i class="fas fa-trash-alt"></i>`);
     const updatebutton = $(`<i class="fas fa-edit"></i>`);
     const completedbutton = $(`<i class="fa fa-check" aria-hidden="true"></i>`);
-
     const divDate = $(`<div>${element.date}</div>`);
+
+    const Pending = $(`<a href ="#">Pending</a>`);
+    Pending.addClass("Pending");
+    Pending.appendTo(listItem);
+
+
 
     listItem.text(element.task);
     listItem.appendTo(unorderedList);
@@ -272,12 +282,15 @@ const toDo = () => {
       divDate.appendTo(listItem);
       completedbutton.appendTo(listItem);
 
+
       deletebutton.on("click", () => {
         listItem.remove();
       });
 
       updatebutton.on("click", () => {
         listItem.text(input.val());
+        divDate.appendTo(listItem);
+
       });
 
       completedbutton.on("click", () => {
@@ -291,9 +304,20 @@ const toDo = () => {
     tasks.on("click", () => {
       element.isCompleted = false;
       console.log(element);
-
-      inputbuttondiv.hide();
+   inputbuttondiv.hide();
+  
+   Pending.appendTo(listItem);
+   Pending.show();
     });
+
+Pending.on("click",()=>{
+
+
+  inputbuttondiv.show()
+  Pending.hide()
+
+})
+
 
     completedbutton.on("click", () => {
       element.isCompleted = true;
