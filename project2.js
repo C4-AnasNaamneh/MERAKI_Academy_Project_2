@@ -70,6 +70,15 @@ const RegisterDiv = $("<div></div>");
 RegisterDiv.addClass("RegisterDiv");
 RegisterDiv.appendTo(body);
 
+
+const image = $(`<img>`);
+image.addClass("image");
+image.attr("src", "https://www.heropa.com/wp-content/uploads//2021/03/Secure-login-bro.svg");
+image.appendTo(RegisterDiv);
+
+
+
+
 const greeting = $(`<h1>Welcome to Our App</h1>`);
 greeting.addClass("greeting");
 greeting.appendTo(RegisterDiv);
@@ -111,6 +120,13 @@ const loginDiv = $("<div></div>");
 loginDiv.addClass("loginDiv");
 loginDiv.appendTo(body);
 
+
+const image2 = $(`<img>`);
+image2.addClass("image");
+image2.attr("src", "https://www.heropa.com/wp-content/uploads//2021/03/Secure-login-bro.svg");
+image2.appendTo(loginDiv);
+
+
 const logininput = $(
   `<br><input placeholder="Enter your Email" type = "email">`
 );
@@ -139,6 +155,7 @@ inputbuttondiv.hide();
 divContainer.hide();
 loginDiv.hide();
 logoutAnchor.hide();
+
 
 Registerbutton.on("click", () => {
   inputbuttondiv.show();

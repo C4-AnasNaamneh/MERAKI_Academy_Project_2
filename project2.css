@@ -5,6 +5,9 @@
         height: auto;
         width: auto;
         text-align: center;
+        
+
+      
       
       }
 
@@ -12,6 +15,8 @@
       body {
         background-color: black;
         color: white;
+        
+       
       }
       
       .dark-mode {
@@ -97,37 +102,46 @@ height: 35px;
 
 
 
-.RegisterDiv {
 
-padding-top: 70px;
-}
 
 .greeting {
 
  position: relative;
-top:  10px;
+bottom:380px;
 left: 300px;
+}
+
+
+.image {
+
+    position: relative;
+    right: 400px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 400px;
+    width: 400px;
+    background-position: left;
 }
 
 
 .Usernameinput {
 
-position: relative;
-top:  10px;
-left: 300px;
-
-}
+    position: relative;
+    bottom:  380px;
+    left: 300px;
+    
+    }
 
 .Registerinput {
     position: relative;
-    top:  20px;
+    bottom:  360px;
     left: 300px;
 
 }
 
 .rpasswordinput {
     position: relative;
-    top:  30px;
+    bottom:  340px;
     left: 300px;
 
 
@@ -135,7 +149,7 @@ left: 300px;
 
 .Registerbutton {
     position: relative;
-    top:  40px;
+    bottom:  320px;
     height: 35px;
     width: 400px;
     left: 300px;
@@ -147,7 +161,7 @@ left: 300px;
 .header2 {
 
     position: relative;
-    top:  50px;
+    bottom:  300px;
     left: 300px;
 
  
@@ -160,25 +174,24 @@ left: 300px;
 }
 
 
-.loginDiv {
 
-margin-top: 150px;    
 
-}
 
 .logininput {
 
     position: relative;
-    top:  10px;
+bottom: 320px;
     left: 300px;
+
 
 }
 
 .passwordinput {
 
     position: relative;
-    top:  20px;
+bottom: 300px;
     left: 300px;
+
 
 }
 
@@ -186,7 +199,7 @@ margin-top: 150px;
 .loginbutton {
 
     position: relative;
-    top:  30px;
+    bottom: 280px;
     height: 35px;
     width: 400px;
     left: 300px;
