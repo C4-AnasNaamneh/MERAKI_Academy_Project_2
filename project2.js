@@ -240,39 +240,53 @@ logoutAnchor.on("click", () => {
   logoutAnchor.hide();
   registerDiv.show();
 });
-
+//function that renders array elements 
 const toDo = () => {
+  //retrieving data from local storage 
   toDos = JSON.parse(localStorage.getItem("toDosArray"));
 
   toDos.forEach((element, i) => {
+    //creating list 
     let listItem = $("<li></li>");
+    //add class
     listItem.addClass("listItem");
+    // create button
     const deleteButton = $(`<i class="fas fa-trash-alt"></i>`);
+    //creating button
     const updateButton = $(`<i class="fas fa-edit"></i>`);
+    //create button
     const completedButton = $(`<i class="fa fa-check" aria-hidden="true"></i>`);
+    //creating div for date
     const divDate = $(`<div>${element.date}</div>`);
-  
+  //creating anchortag
     const pendingList = $(`<a href ="#">Pending</a>`);
+    //add class
     pendingList.addClass("pendingList");
+    //append anchor to list
     pendingList.appendTo(listItem);
-
+   //creating anchortag
     const completedList = $(`<a href ="#">Completed</a>`);
+    //add class
     completedList.addClass("completedList");
+    // append anchor to list 
     completedList.appendTo(listItem);
-
+   //adding values to list
     listItem.text(element.task);
+    //append list to unordered list
     listItem.appendTo(unorderedList);
-
+   // append date div to list
     divDate.appendTo(listItem);
-
+  //append delete button to list
     deleteButton.appendTo(listItem);
+ //append update button to list
     updateButton.appendTo(listItem);
+//append completed button to list
     completedButton.appendTo(listItem);
-
+//add classes for buttons
     deleteButton.addClass("deleteButton");
     updateButton.addClass("updateButton");
     completedButton.addClass("completedButton");
-
+// on click
     deleteButton.on("click", () => {
       toDos.forEach((todo, i) => {
         if (todo === element) {
@@ -291,7 +305,7 @@ const toDo = () => {
       //   localStorage.setItem("toDosArray", toDos);
       // }
     });
-
+// on click
     updateButton.on("click", () => {
       //listItem.text(input.val());
       //toDos =[];
@@ -346,7 +360,7 @@ const toDo = () => {
       //   localStorage.setItem("toDosArray", JSON.stringify(toDos));
       // });
     });
-
+// on click
     tasksDiv.on("click", () => {
       element.isCompleted = false;
       if (element.isCompleted !== true) {
@@ -375,7 +389,7 @@ const toDo = () => {
       //   localStorage.setItem("toDosArray", JSON.stringify(toDos));
       // });
     });
-
+// on click
     pendingList.on("click", () => {
       inputButtonDiv.show();
       pendingList.hide();
@@ -385,7 +399,7 @@ const toDo = () => {
     //   inputButtonDiv.show();
     //   completedList.hide();
     // });
-
+// on click
     completedButton.on("click", () => {
       element.isCompleted = true;
 
@@ -396,7 +410,7 @@ const toDo = () => {
       localStorage.setItem("toDosArray", JSON.stringify(toDos));
 
     });
-
+// on click
     completedDiv.on("click", () => {
       let answer = toDos.filter((element, i) => {
         return element.isCompleted === true;
@@ -414,12 +428,15 @@ const toDo = () => {
         p.addClass(p);
         p.appendTo(divContainer);
       });
+        //store data to local storage 
+
       localStorage.setItem("toDosArray", JSON.stringify(toDos));
     });
   });
 };
 toDo();
 
+//callback function holds array and local storage get invoked when clicking on add button 
 const addtoList = () => {
   // toDos = [];
   toDos.push({
