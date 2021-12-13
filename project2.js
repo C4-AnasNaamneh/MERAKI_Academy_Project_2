@@ -42,9 +42,9 @@ toggle.appendTo(container);
 const divContainer = $("<div></div>");
 divContainer.addClass("divContainer");
 
-const inputbuttondiv = $("<div></div>");
-inputbuttondiv.addClass("inputbuttondiv");
-inputbuttondiv.appendTo(body);
+const inputButtonDiv = $("<div></div>");
+inputButtonDiv.addClass("inputButtonDiv");
+inputButtonDiv.appendTo(body);
 
 divContainer.appendTo(body);
 
@@ -53,21 +53,21 @@ unorderedList.addClass("unorderedList");
 unorderedList.appendTo(divContainer);
 
 const input = $(`<input placeholder="Add New Task...">`);
-input.appendTo(inputbuttondiv);
+input.appendTo(inputButtonDiv);
 
 const inputDate = $("<input  type = date></input");
 
 inputDate.addClass("inputDate");
-inputDate.appendTo(inputbuttondiv);
+inputDate.appendTo(inputButtonDiv);
 
-const addbutton = $(`<i class="fas fa-plus-circle"></i>`);
-addbutton.text("");
-addbutton.addClass("addbutton");
-addbutton.appendTo(inputbuttondiv);
+const addButton = $(`<i class="fas fa-plus-circle"></i>`);
+addButton.text("");
+addButton.addClass("addButton");
+addButton.appendTo(inputButtonDiv);
 
-const RegisterDiv = $("<div></div>");
-RegisterDiv.addClass("RegisterDiv");
-RegisterDiv.appendTo(body);
+const registerDiv = $("<div></div>");
+registerDiv.addClass("registerDiv");
+registerDiv.appendTo(body);
 
 const image = $(`<img>`);
 image.addClass("image");
@@ -75,38 +75,38 @@ image.attr(
   "src",
   "https://www.heropa.com/wp-content/uploads//2021/03/Secure-login-bro.svg"
 );
-image.appendTo(RegisterDiv);
+image.appendTo(registerDiv);
 
 const greeting = $(`<h1>Welcome to Our App</h1>`);
 greeting.addClass("greeting");
-greeting.appendTo(RegisterDiv);
+greeting.appendTo(registerDiv);
 
 const Usernameinput = $(
   `<br><input placeholder="Enter your Username" type = "text">`
 );
 Usernameinput.addClass("Usernameinput");
-Usernameinput.appendTo(RegisterDiv);
+Usernameinput.appendTo(registerDiv);
 
-const Registerinput = $(
+const registerinput = $(
   `<br><input placeholder="Enter your Email" type = "email">`
 );
-Registerinput.addClass("Registerinput");
-Registerinput.appendTo(RegisterDiv);
+registerinput.addClass("registerinput");
+registerinput.appendTo(registerDiv);
 
 const rpasswordinput = $(
   `<br><input placeholder="Enter your Password" type = "password">`
 );
 rpasswordinput.addClass("rpasswordinput");
-rpasswordinput.appendTo(RegisterDiv);
+rpasswordinput.appendTo(registerDiv);
 
-const Registerbutton = $(`<br><button>Register</button>`);
-Registerbutton.addClass("Registerbutton");
-Registerbutton.appendTo(RegisterDiv);
+const registerButton = $(`<br><button>Register</button>`);
+registerButton.addClass("registerButton");
+registerButton.appendTo(registerDiv);
 
 const header2 = $(`<h3>Already have account?</h3>`);
 
 header2.addClass("header2");
-header2.appendTo(RegisterDiv);
+header2.appendTo(registerDiv);
 
 const loginAnchor = $("<a href =# >Login</a>");
 
@@ -150,47 +150,46 @@ const logoutAnchor = $("<a href =# >Logout</a>");
 logoutAnchor.addClass("logoutAnchor");
 logoutAnchor.appendTo(logout);
 
-inputbuttondiv.hide();
+inputButtonDiv.hide();
 divContainer.hide();
 loginDiv.hide();
 logoutAnchor.hide();
 
-Registerbutton.on("click", () => {
-  inputbuttondiv.show();
+registerButton.on("click", () => {
+  inputButtonDiv.show();
   divContainer.show();
-  RegisterDiv.hide();
+  registerDiv.hide();
   logoutAnchor.show();
 });
 
 loginAnchor.on("click", () => {
-  RegisterDiv.hide();
+  registerDiv.hide();
   loginDiv.show();
 });
 
 loginbutton.on("click", () => {
-  inputbuttondiv.show();
+  inputButtonDiv.show();
   divContainer.show();
   loginDiv.hide();
   logoutAnchor.show();
 });
 
 logoutAnchor.on("click", () => {
-  inputbuttondiv.hide();
+  inputButtonDiv.hide();
   divContainer.hide();
   loginDiv.hide();
   logoutAnchor.hide();
-  RegisterDiv.show();
+  registerDiv.show();
 });
 
 const toDo = () => {
-
   toDos = JSON.parse(localStorage.getItem("toDosArray"));
 
   toDos.forEach((element, i) => {
     let listItem = $("<li></li>");
     listItem.addClass("listItem");
-    const deletebutton = $(`<i class="fas fa-trash-alt"></i>`);
-    const updatebutton = $(`<i class="fas fa-edit"></i>`);
+    const deleteButton = $(`<i class="fas fa-trash-alt"></i>`);
+    const updateButton = $(`<i class="fas fa-edit"></i>`);
     const completedbutton = $(`<i class="fa fa-check" aria-hidden="true"></i>`);
     const divDate = $(`<div>${element.date}</div>`);
 
@@ -207,27 +206,26 @@ const toDo = () => {
 
     divDate.appendTo(listItem);
 
-    deletebutton.appendTo(listItem);
-    updatebutton.appendTo(listItem);
+    deleteButton.appendTo(listItem);
+    updateButton.appendTo(listItem);
     completedbutton.appendTo(listItem);
 
-    deletebutton.addClass("deletebutton");
-    updatebutton.addClass("updatebutton");
+    deleteButton.addClass("deleteButton");
+    updateButton.addClass("updateButton");
     completedbutton.addClass("completedbutton");
 
-    deletebutton.on("click", () => {
-      toDos.forEach((todo,i) => {
+    deleteButton.on("click", () => {
+      toDos.forEach((todo, i) => {
         if (todo === element) {
           toDos.splice(i, 1);
-
         }
         console.log(toDos[i]);
-
       });
       localStorage.setItem("toDosArray", JSON.stringify(toDos));
 
-
       listItem.remove();
+
+
 
       // for (let i = 0; i < storage.length; i++) {
       //   const remove = storage.splice(i, 1);
@@ -237,54 +235,50 @@ const toDo = () => {
       // }
     });
 
-    updatebutton.on("click", () => {
+    updateButton.on("click", () => {
       //listItem.text(input.val());
 
-      toDos.forEach((todo, i) => {
-        if (element === todo) {
           toDos[i] = {
             task: input.val(),
             isCompleted: false,
             date: inputDate.val(),
           };
-         console.log(toDos[i]);
-         localStorage.setItem("toDosArray", JSON.stringify(toDos));
-         // console.log(toDos);
-        }
-      });
+          console.log(toDos[i]);
+          localStorage.setItem("toDosArray", JSON.stringify(toDos));
+          // console.log(toDos);
+        
+      //addtoList()
+      toDo()
 
-      deletebutton.appendTo(listItem);
-      updatebutton.appendTo(listItem);
-      divDate.appendTo(listItem);
-      completedbutton.appendTo(listItem);
+      // deleteButton.appendTo(listItem);
+      // updateButton.appendTo(listItem);
+      // divDate.appendTo(listItem);
+      // completedbutton.appendTo(listItem);
 
+      // deleteButton.on("click", () => {
+      //   listItem.remove();
+      // });
 
-      deletebutton.on("click", () => {
-        listItem.remove();
-      });
+      // updateButton.on("click", () => {
+      //   listItem.text(input.val());
+      //   divDate.appendTo(listItem);
+      //   localStorage.setItem("toDosArray", JSON.stringify(toDos));
+      // });
 
-      updatebutton.on("click", () => {
-        listItem.text(input.val());
-        divDate.appendTo(listItem);
-        localStorage.setItem("toDosArray", JSON.stringify(toDos));
+      // completedbutton.on("click", () => {
+      //   element.isCompleted = true;
+      //   console.log(element);
 
-      });
-
-      completedbutton.on("click", () => {
-        element.isCompleted = true;
-        console.log(element);
-
-        listItem.hide();
-        localStorage.setItem("toDosArray", JSON.stringify(toDos));
-
-      });
+      //   listItem.hide();
+      //   localStorage.setItem("toDosArray", JSON.stringify(toDos));
+      // });
     });
 
     tasks.on("click", () => {
       element.isCompleted = false;
       if (element.isCompleted !== true) {
         console.log(element);
-        inputbuttondiv.hide();
+        inputButtonDiv.hide();
 
         Pending.appendTo(listItem);
         Pending.show();
@@ -307,17 +301,16 @@ const toDo = () => {
           p.appendTo(divContainer);
         });
         localStorage.setItem("toDosArray", JSON.stringify(toDos));
-
       });
     });
 
     Pending.on("click", () => {
-      inputbuttondiv.show();
+      inputButtonDiv.show();
       Pending.hide();
     });
 
     CompletedL.on("click", () => {
-      inputbuttondiv.show();
+      inputButtonDiv.show();
       CompletedL.hide();
     });
 
@@ -348,11 +341,11 @@ const toDo = () => {
         p.appendTo(divContainer);
       });
       localStorage.setItem("toDosArray", JSON.stringify(toDos));
-
     });
   });
 };
 toDo();
+
 
 const addtoList = () => {
   // toDos = [];
@@ -361,17 +354,20 @@ const addtoList = () => {
     isCompleted: false,
     date: inputDate.val(),
   });
-  
+
   localStorage.setItem("toDosArray", JSON.stringify(toDos));
   unorderedList.text("");
   toDo();
-// console.log("test");
-//   console.log(toDosArray);
+  // console.log("test");
+  //   console.log(toDosArray);
 
   // toDos= JSON.parse(localStorage.getItem("toDosArray"));
 };
 
-addbutton.on("click", addtoList);
+addButton.on("click", addtoList);
+
+
+//Toggle between Dark and Light Mode 
 
 toggle.on("click", () => {
   function myFunction() {
