@@ -15,25 +15,25 @@ const header = $("<h1>Schedule your day</h1>");
 header.addClass("h1");
 header.appendTo(title);
 
-const tasks = $("<div></div>");
-tasks.appendTo(container);
+const tasksDiv = $("<div></div>");
+tasksDiv.appendTo(container);
 
-const completed = $("<div></div>");
-completed.appendTo(container);
+const completedDiv = $("<div></div>");
+completedDiv.appendTo(container);
 
-const anchor = $("<a href=#></a>");
-anchor.text("Tasks");
-anchor.appendTo(tasks);
+const tasksAnchor = $("<a href=#></a>");
+tasksAnchor.text("Tasks");
+tasksAnchor.appendTo(tasksDiv);
 
-const anchor1 = $("<a href =# ></a>");
-anchor1.text("Completed");
-anchor1.appendTo(completed);
+const completedAnchor = $("<a href =# ></a>");
+completedAnchor.text("Completed");
+completedAnchor.appendTo(completedDiv);
 
-tasks.addClass("tasks");
-completed.addClass("completed");
+tasksDiv.addClass("tasksDiv");
+completedDiv.addClass("completedDiv");
 
-anchor.addClass("anchor");
-anchor1.addClass("anchor");
+tasksAnchor.addClass("anchor");
+completedAnchor.addClass("anchor");
 
 const toggle = $(`<a href = "#">Dark/Light </a>`);
 toggle.addClass("mode");
@@ -54,6 +54,9 @@ unorderedList.appendTo(divContainer);
 
 const input = $(`<input placeholder="Add New Task...">`);
 input.appendTo(inputButtonDiv);
+
+
+
 
 const inputDate = $("<input  type = date></input");
 
@@ -81,23 +84,23 @@ const greeting = $(`<h1>Welcome to Our App</h1>`);
 greeting.addClass("greeting");
 greeting.appendTo(registerDiv);
 
-const Usernameinput = $(
+const UsernameInput = $(
   `<br><input placeholder="Enter your Username" type = "text">`
 );
-Usernameinput.addClass("Usernameinput");
-Usernameinput.appendTo(registerDiv);
+UsernameInput.addClass("UsernameInput");
+UsernameInput.appendTo(registerDiv);
 
-const registerinput = $(
+const registerInput = $(
   `<br><input placeholder="Enter your Email" type = "email">`
 );
-registerinput.addClass("registerinput");
-registerinput.appendTo(registerDiv);
+registerInput.addClass("registerInput");
+registerInput.appendTo(registerDiv);
 
-const rpasswordinput = $(
+const rpasswordInput = $(
   `<br><input placeholder="Enter your Password" type = "password">`
 );
-rpasswordinput.addClass("rpasswordinput");
-rpasswordinput.appendTo(registerDiv);
+rpasswordInput.addClass("rpasswordInput");
+rpasswordInput.appendTo(registerDiv);
 
 const registerButton = $(`<br><button>Register</button>`);
 registerButton.addClass("registerButton");
@@ -126,29 +129,29 @@ image2.attr(
 );
 image2.appendTo(loginDiv);
 
-const logininput = $(
+const loginInput = $(
   `<br><input placeholder="Enter your Email" type = "email">`
 );
-logininput.addClass("logininput");
-logininput.appendTo(loginDiv);
+loginInput.addClass("loginInput");
+loginInput.appendTo(loginDiv);
 
-const passwordinput = $(
+const passwordInput = $(
   `<br><input placeholder="Enter your Password" type = "password">`
 );
-passwordinput.addClass("passwordinput");
-passwordinput.appendTo(loginDiv);
+passwordInput.addClass("passwordInput");
+passwordInput.appendTo(loginDiv);
 
-const loginbutton = $(`<br><button>Login</button>`);
-loginbutton.addClass("loginbutton");
-loginbutton.appendTo(loginDiv);
+const loginButton = $(`<br><button>Login</button>`);
+loginButton.addClass("loginButton");
+loginButton.appendTo(loginDiv);
 
-const logout = $(`<div></div>`);
-logout.addClass("logoutAnchor");
-logout.appendTo(container);
+const logoutDiv = $(`<div></div>`);
+logoutDiv.addClass("logout");
+logoutDiv.appendTo(container);
 
 const logoutAnchor = $("<a href =# >Logout</a>");
-logoutAnchor.addClass("logoutAnchor");
-logoutAnchor.appendTo(logout);
+logoutAnchor.addClass("logout");
+logoutAnchor.appendTo(logoutDiv);
 
 inputButtonDiv.hide();
 divContainer.hide();
@@ -167,7 +170,7 @@ loginAnchor.on("click", () => {
   loginDiv.show();
 });
 
-loginbutton.on("click", () => {
+loginButton.on("click", () => {
   inputButtonDiv.show();
   divContainer.show();
   loginDiv.hide();
@@ -190,16 +193,16 @@ const toDo = () => {
     listItem.addClass("listItem");
     const deleteButton = $(`<i class="fas fa-trash-alt"></i>`);
     const updateButton = $(`<i class="fas fa-edit"></i>`);
-    const completedbutton = $(`<i class="fa fa-check" aria-hidden="true"></i>`);
+    const completedButton = $(`<i class="fa fa-check" aria-hidden="true"></i>`);
     const divDate = $(`<div>${element.date}</div>`);
 
-    const Pending = $(`<a href ="#">Pending</a>`);
-    Pending.addClass("Pending");
-    Pending.appendTo(listItem);
+    const pendingList = $(`<a href ="#">Pending</a>`);
+    pendingList.addClass("pendingList");
+    pendingList.appendTo(listItem);
 
-    const CompletedL = $(`<a href ="#">Completed</a>`);
-    CompletedL.addClass("complete");
-    CompletedL.appendTo(listItem);
+    const completedList = $(`<a href ="#">Completed</a>`);
+    completedList.addClass("completedList");
+    completedList.appendTo(listItem);
 
     listItem.text(element.task);
     listItem.appendTo(unorderedList);
@@ -208,11 +211,11 @@ const toDo = () => {
 
     deleteButton.appendTo(listItem);
     updateButton.appendTo(listItem);
-    completedbutton.appendTo(listItem);
+    completedButton.appendTo(listItem);
 
     deleteButton.addClass("deleteButton");
     updateButton.addClass("updateButton");
-    completedbutton.addClass("completedbutton");
+    completedButton.addClass("completedButton");
 
     deleteButton.on("click", () => {
       toDos.forEach((todo, i) => {
@@ -253,7 +256,7 @@ const toDo = () => {
       // deleteButton.appendTo(listItem);
       // updateButton.appendTo(listItem);
       // divDate.appendTo(listItem);
-      // completedbutton.appendTo(listItem);
+      // completedButton.appendTo(listItem);
 
       // deleteButton.on("click", () => {
       //   listItem.remove();
@@ -265,7 +268,7 @@ const toDo = () => {
       //   localStorage.setItem("toDosArray", JSON.stringify(toDos));
       // });
 
-      // completedbutton.on("click", () => {
+      // completedButton.on("click", () => {
       //   element.isCompleted = true;
       //   console.log(element);
 
@@ -274,19 +277,19 @@ const toDo = () => {
       // });
     });
 
-    tasks.on("click", () => {
+    tasksDiv.on("click", () => {
       element.isCompleted = false;
       if (element.isCompleted !== true) {
         console.log(element);
         inputButtonDiv.hide();
 
-        Pending.appendTo(listItem);
-        Pending.show();
+        pendingList.appendTo(listItem);
+        pendingList.show();
       }
 
-      completed.appendTo(container);
+      completedDiv.appendTo(container);
 
-      completed.on("click", () => {
+      completedDiv.on("click", () => {
         let answer = toDos.filter((element, i) => {
           return element.isCompleted === true;
         });
@@ -304,17 +307,17 @@ const toDo = () => {
       });
     });
 
-    Pending.on("click", () => {
+    pendingList.on("click", () => {
       inputButtonDiv.show();
-      Pending.hide();
+      pendingList.hide();
     });
 
-    CompletedL.on("click", () => {
+    completedList.on("click", () => {
       inputButtonDiv.show();
-      CompletedL.hide();
+      completedList.hide();
     });
 
-    completedbutton.on("click", () => {
+    completedButton.on("click", () => {
       element.isCompleted = true;
 
       console.log(element);
@@ -323,15 +326,15 @@ const toDo = () => {
       }
     });
 
-    completed.on("click", () => {
+    completedAnchor.on("click", () => {
       let answer = toDos.filter((element, i) => {
         return element.isCompleted === true;
       });
-      CompletedL.appendTo(listItem);
+      completedList.appendTo(listItem);
 
       listItem.hide();
       Pending.hide();
-      CompletedL.show();
+      completedList.show();
 
       answer.forEach((element, i) => {
         toDos = [];
