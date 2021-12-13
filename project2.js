@@ -1,4 +1,4 @@
-let toDos = ["wakeup","code","eat breakfast"];
+let toDos = [];
 const localStorage = window.localStorage;
 //let storage = JSON.parse(localStorage.getItem("toDosArray"));
 const body = $("body");
@@ -183,7 +183,6 @@ logoutAnchor.on("click", () => {
 });
 
 const toDo = () => {
-  unorderedList.text("");
 
   toDos = JSON.parse(localStorage.getItem("toDosArray"));
 
@@ -217,12 +216,16 @@ const toDo = () => {
     completedbutton.addClass("completedbutton");
 
     deletebutton.on("click", () => {
-      toDos.forEach((todo) => {
+      toDos.forEach((todo,i) => {
         if (todo === element) {
           toDos.splice(i, 1);
+
         }
+        console.log(toDos[i]);
+
       });
       localStorage.setItem("toDosArray", JSON.stringify(toDos));
+
 
       listItem.remove();
 
@@ -239,15 +242,22 @@ const toDo = () => {
 
       toDos.forEach((todo, i) => {
         if (element === todo) {
-          toDos[i] = input.val();
+          toDos[i] = {
+            task: input.val(),
+            isCompleted: false,
+            date: inputDate.val(),
+          };
+         console.log(toDos[i]);
+         localStorage.setItem("toDosArray", JSON.stringify(toDos));
+         // console.log(toDos);
         }
       });
-      //localStorage.setItem("toDosArray", JSON.stringify(toDos));
 
       deletebutton.appendTo(listItem);
       updatebutton.appendTo(listItem);
       divDate.appendTo(listItem);
       completedbutton.appendTo(listItem);
+
 
       deletebutton.on("click", () => {
         listItem.remove();
@@ -256,6 +266,8 @@ const toDo = () => {
       updatebutton.on("click", () => {
         listItem.text(input.val());
         divDate.appendTo(listItem);
+        localStorage.setItem("toDosArray", JSON.stringify(toDos));
+
       });
 
       completedbutton.on("click", () => {
@@ -263,6 +275,8 @@ const toDo = () => {
         console.log(element);
 
         listItem.hide();
+        localStorage.setItem("toDosArray", JSON.stringify(toDos));
+
       });
     });
 
@@ -292,6 +306,8 @@ const toDo = () => {
           p.addClass(p);
           p.appendTo(divContainer);
         });
+        localStorage.setItem("toDosArray", JSON.stringify(toDos));
+
       });
     });
 
@@ -331,6 +347,8 @@ const toDo = () => {
         p.addClass(p);
         p.appendTo(divContainer);
       });
+      localStorage.setItem("toDosArray", JSON.stringify(toDos));
+
     });
   });
 };
@@ -343,12 +361,14 @@ const addtoList = () => {
     isCompleted: false,
     date: inputDate.val(),
   });
-
-  toDo();
-
+  
   localStorage.setItem("toDosArray", JSON.stringify(toDos));
+  unorderedList.text("");
+  toDo();
+// console.log("test");
+//   console.log(toDosArray);
 
-  toDos= JSON.parse(localStorage.getItem("toDosArray"));
+  // toDos= JSON.parse(localStorage.getItem("toDosArray"));
 };
 
 addbutton.on("click", addtoList);
