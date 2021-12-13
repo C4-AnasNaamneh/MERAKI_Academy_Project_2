@@ -5,11 +5,14 @@
   height: auto;
   width: auto;
   text-align: center;
+
+
 }
 
 body {
   background-color: black;
   color: white;
+  overflow: hidden;
 }
 
 .dark-mode {
@@ -23,6 +26,11 @@ body {
   justify-content: end;
   background-color: #030f29;
   height: 35px;
+
+
+
+
+
 }
 
 .anchor {
@@ -90,7 +98,7 @@ body {
   background-position: left;
 }
 
-.UsernameInput {
+.usernameInput {
   position: relative;
   bottom: 380px;
   left: 300px;
