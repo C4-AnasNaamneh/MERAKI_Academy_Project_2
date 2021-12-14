@@ -263,11 +263,9 @@ const toDo = () => {
     //append anchor to list
     pendingList.appendTo(listItem);
     //creating anchortag
-    const completedList = $(`<a href ="#">Completed</a>`);
     //add class
-    completedList.addClass("completedList");
     // append anchor to list
-    completedList.appendTo(listItem);
+    // completedList.appendTo(listItem);
     //adding values to list
     listItem.text(element.task);
 
@@ -330,6 +328,7 @@ const toDo = () => {
       inputButtonDiv.show();
       //pendingList.hide();
       $(".pendingList").hide();
+      localStorage.setItem("toDosArray", JSON.stringify(toDos));
     });
 
     // on click
@@ -360,12 +359,23 @@ const toDo = () => {
       answer.forEach((element, i) => {
         toDos = [];
         const value = element.task;
-        
-        const p = $(`<p>${value}</p>`);
+        const completedList = $(`<a href ="#">Completed</a>`);
+        completedList.addClass("completedList");
+
+        const p = $(`<p>${value} </p>`);
         p.addClass("p");
+        completedList.appendTo(p);
+
         p.appendTo(divContainer);
         inputButtonDiv.hide();
-        completedList.appendTo(p);
+        completedList.on("click", () => {
+          $(".completedList").hide();
+          //divContainer.hide()
+          //p.appendTo(divContainer);
+          $(".p").hide();
+          inputButtonDiv.show();
+          localStorage.setItem("toDosArray", JSON.stringify(toDos));
+        });
       });
 
       //store data to local storage
@@ -374,14 +384,17 @@ const toDo = () => {
     });
 
     // on click
-    completedList.on("click", () => {
-      $(".completedList").hide();
-      //divContainer.hide()
-      //p.appendTo(divContainer);
-      $(".p").hide()
-      inputButtonDiv.show();
-    });
-    localStorage.setItem("toDosArray", JSON.stringify(toDos));
+   
+
+    let arr = [
+      {
+        usernameInput: input.val(),
+        registerInput: input.val(),
+        rpasswordInput: input.val(),
+      },
+
+      { loginInput: input.val(), passwordInput: input.val() },
+    ];
   });
 };
 toDo();
@@ -393,6 +406,11 @@ const addtoList = () => {
     task: input.val(),
     isCompleted: false,
     date: inputDate.val(),
+    Register: {
+      usernameInput: input.val(),
+      registerInput: input.val(),
+      rpasswordInput: input.val(),
+    },
   });
 
   localStorage.setItem("toDosArray", JSON.stringify(toDos));

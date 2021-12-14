@@ -43,7 +43,6 @@ body {
 }
 
 .p {
-  position: relative;
   
   font-size: larger;
 }
@@ -71,14 +70,12 @@ body {
 
 .pendingList {
   text-decoration: none;
-  background-color: white;
   color: orangered;
   font-size: larger;
 }
 
 .completedList {
   text-decoration: none;
-  background-color: rgb(51, 6, 6);
   color: green;
   font-size: larger;
 }
@@ -132,6 +129,7 @@ body {
 }
 
 .loginAnchor {
+  text-decoration: none;
   position: relative;
   left: 10px;
 }
