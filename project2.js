@@ -116,6 +116,7 @@ greeting.appendTo(registerDiv);
 const usernameInput = $(
   `<br><input placeholder="Enter your username" type = "text">`
 );
+
 //add class
 usernameInput.addClass("usernameInput");
 //append input to div
@@ -384,17 +385,6 @@ const toDo = () => {
     });
 
     // on click
-   
-
-    let arr = [
-      {
-        usernameInput: input.val(),
-        registerInput: input.val(),
-        rpasswordInput: input.val(),
-      },
-
-      { loginInput: input.val(), passwordInput: input.val() },
-    ];
   });
 };
 toDo();
@@ -434,3 +424,13 @@ toggle.on("click", () => {
 
   myFunction();
 });
+
+let arr = [
+  {
+    usernameInput: usernameInput.val(),
+    email: registerInput.val(),
+    password: rpasswordInput.val(),
+  },
+
+  { loginInput: input.val(), passwordInput: input.val() },
+];
