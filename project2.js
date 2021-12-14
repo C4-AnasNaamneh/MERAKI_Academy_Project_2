@@ -323,60 +323,6 @@ const toDo = () => {
 
       toDo()
 
-      //listItem.text(input.val());
-      //toDos =[];
-      // toDos[i] = {
-      //   task: input.val(),
-      //   isCompleted: false,
-      //   date: inputDate.val(),
-      // };
-
-      // console.log(toDos[i]);
-
-      //  addtoList();
-      //toDo()
-      //   let arr = []
-
-      //      toDos.forEach((todo,i)=>{
-      //        arr.push(element)
-      //       // toDos[i] =  {
-      //       //   task: input.val(),
-      //       //   isCompleted: false,
-      //       //   date: inputDate.val(),
-      //       // };
-      //  // console.log(toDos[i]);
-
-      //      })
-      //      localStorage.setItem("toDosArray", JSON.stringify(toDos));
-
-      //      addtoList();
-
-      //       console.log(toDos);
-
-      //      toDo();
-
-      // deleteButton.appendTo(listItem);
-      // updateButton.appendTo(listItem);
-      // divDate.appendTo(listItem);
-      // completedButton.appendTo(listItem);
-
-      // deleteButton.on("click", () => {
-      //   listItem.remove();
-      // });
-
-      // updateButton.on("click", () => {
-      //   listItem.text(input.val());
-      //   divDate.appendTo(listItem);
-      //   localStorage.setItem("toDosArray", JSON.stringify(toDos));
-      // });
-
-      // completedButton.on("click", () => {
-      //   element.isCompleted = true;
-      //   console.log(element);
-
-      //   listItem.hide();
-      //   localStorage.setItem("toDosArray", JSON.stringify(toDos));
-      // });
     });
     // on click
     tasksDiv.on("click", () => {
@@ -389,27 +335,14 @@ const toDo = () => {
         pendingList.show();
       }
 
-      // completedDiv.on("click", () => {
-      //   let answer = toDos.filter((element, i) => {
-      //     return element.isCompleted === true;
-      //   });
-
-      //   listItem.show();
-
-      //   answer.forEach((element, i) => {
-      //     toDos = [];
-      //     const value = element.task;
-      //     const p = $(`<p>${value}</p>`);
-      //     p.addClass(p);
-      //     p.appendTo(divContainer);
-      //   });
-      //   localStorage.setItem("toDosArray", JSON.stringify(toDos));
-      // });
+      
     });
     // on click
     pendingList.on("click", () => {
       inputButtonDiv.show();
-      pendingList.hide();
+      //pendingList.hide();
+      $(".pendingList").hide();
+
     });
 
     // completedList.on("click", () => {
