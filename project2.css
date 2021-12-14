@@ -38,6 +38,9 @@ body {
   font-size: larger;
 }
 
+
+
+
 .tasksDiv {
   position: relative;
   left: 280px;
@@ -78,15 +81,15 @@ body {
 
 .greeting {
   position: relative;
-  color: black;
+  color: grey;
   bottom: 380px;
   left: 300px;
 }
 
 .secondGreeting {
   position: relative;
-  color: black;
-  bottom: 340px;
+  color: grey;
+  bottom: 360px;
   left: 300px;
 }
 
@@ -102,15 +105,15 @@ body {
 
 .usernameInput {
   position: relative;
-  bottom: 380px;
-  left: 300px;
+  bottom: 370px;
+left: 700px;
   background-color: #d9d9d9;
   font-size: large;
 }
 
 .registerInput {
   position: relative;
-  bottom: 360px;
+  bottom: 310px;
   left: 300px;
   background-color: #d9d9d9;
   font-size: large;
@@ -118,15 +121,15 @@ body {
 
 .rpasswordInput {
   position: relative;
-  bottom: 340px;
-  left: 300px;
+  bottom: 250px;
+  right: 100px;
   background-color: #d9d9d9;
   font-size: large;
 }
 
 .registerButton {
   position: relative;
-  bottom: 320px;
+  bottom: 230px;
   height: 35px;
   width: 400px;
   left: 300px;
@@ -135,35 +138,37 @@ body {
 
 .header2 {
   position: relative;
-  bottom: 300px;
+  bottom: 220px;
   left: 300px;
+  font-size: larger;
 }
 
 .loginAnchor {
   text-decoration: none;
   position: relative;
   left: 10px;
+  font-size: larger;
 }
 
 .loginInput {
   position: relative;
-  bottom: 320px;
-  left: 300px;
+  bottom: 350px;
+  left: 500px;
   background-color: #d9d9d9;
   font-size: large;
 }
 
 .passwordInput {
   position: relative;
-  bottom: 300px;
-  left: 300px;
+  bottom: 290px;
+  left: 100px;
   background-color: #d9d9d9;
   font-size: large;
 }
 
 .loginButton {
   position: relative;
-  bottom: 280px;
+  bottom: 270px;
   height: 35px;
   width: 400px;
   left: 300px;
@@ -233,6 +238,16 @@ input {
 
 .listItem {
   padding-top: 20px;
+}
+
+.copy {
+  background-color: #a8a8a8;
+  color: #030f29;
+  position: relative;
+  bottom: 500px;
+  text-align: center;
+  font-size: larger;
+  font-weight: bold;
 }
 
 @media all and (max-width: 500px) {

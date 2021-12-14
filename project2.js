@@ -63,6 +63,7 @@ const inputButtonDiv = $("<div></div>");
 inputButtonDiv.addClass("inputButtonDiv");
 //append div to body
 inputButtonDiv.appendTo(body);
+
 //append div to body
 divContainer.appendTo(body);
 //create unordered list
@@ -95,6 +96,7 @@ const registerDiv = $("<div></div>");
 registerDiv.addClass("registerDiv");
 // append div to body
 registerDiv.appendTo(body);
+
 // creating image
 const image = $(`<img>`);
 // add class
@@ -114,16 +116,17 @@ greeting.addClass("greeting");
 greeting.appendTo(registerDiv);
 //creating input
 const usernameInput = $(
-  `<br><input placeholder="Enter your username" type = "text">`
+  `<input placeholder="Enter your username" type = "text"/>`
 );
-
+const br = $("<br/>");
+br.appendTo(registerDiv);
 //add class
 usernameInput.addClass("usernameInput");
 //append input to div
 usernameInput.appendTo(registerDiv);
 //creating input
 const registerInput = $(
-  `<br><input placeholder="Enter your Email" type = "email">`
+  `<input placeholder="Enter your Email" type = "email">`
 );
 //add class
 registerInput.addClass("registerInput");
@@ -131,7 +134,7 @@ registerInput.addClass("registerInput");
 registerInput.appendTo(registerDiv);
 //creating input
 const rpasswordInput = $(
-  `<br><input placeholder="Enter your Password" type = "password">`
+  `<input placeholder="Enter your Password" type = "password">`
 );
 //add class
 rpasswordInput.addClass("rpasswordInput");
@@ -179,7 +182,7 @@ secondGreeting.appendTo(loginDiv);
 
 //creating input
 const loginInput = $(
-  `<br><input placeholder="Enter your Email" type = "email">`
+  `<input placeholder="Enter your Email" type = "email">`
 );
 //add class
 loginInput.addClass("loginInput");
@@ -187,8 +190,13 @@ loginInput.addClass("loginInput");
 loginInput.appendTo(loginDiv);
 //creating input
 const passwordInput = $(
-  `<br><input placeholder="Enter your Password" type = "password">`
+  `<input placeholder="Enter your Password" type = "password">`
 );
+
+const br1 = $("<br/>");
+br1.appendTo(loginDiv);
+
+
 //add class
 passwordInput.addClass("passwordInput");
 //append input to div
@@ -225,24 +233,15 @@ let dataBase = JSON.parse(localStorage.getItem("dataBaseArray")) || [];
 
 const registerAccount = () => {
   dataBase.forEach((element, i) => {
+    console.log(element);
     //usernameInput.text(element.username);
-    //  registerInput.text(value2);
-    // rpasswordInput.text(value3);
 
-    //const value =  ;
-    //const value2 = element.registerEmail;
-    //const value3 = element.registerPassword;
-
-    console.log(usernameInput);
-    //console.log(value2);
-    //console.log(value3);
+    console.log(element.username);
 
     /*
-  if (  usernameInput.val() ) {
+  if (   ) {
 
-    console.log(usernameInput.val());
-
-    usernameInput.text(usernameInput.val())
+    
   }
 
   if (element.registerEmail === registerInput.val() ) {
@@ -268,17 +267,14 @@ registerAccount();
 
 //on click
 registerButton.on("click", () => {
-  dataBase.push(
-    {
-      username: usernameInput.val(),
-      registerEmail: registerInput.val(),
-      registerPassword: rpasswordInput.val(),
-    },
-    {
-      loginEmail: loginInput.val(),
-      passwordEmail: passwordInput.val(),
-    }
-  );
+  console.log("usernameInput.val()", usernameInput.val());
+  dataBase.push({
+    username: usernameInput.val(),
+    registerEmail: registerInput.val(),
+    registerPassword: rpasswordInput.val(),
+  });
+
+  console.log(dataBase);
 
   inputButtonDiv.show();
   divContainer.show();
