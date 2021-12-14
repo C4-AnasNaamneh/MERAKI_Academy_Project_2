@@ -5,8 +5,6 @@
   height: auto;
   width: auto;
   text-align: center;
-
-
 }
 
 body {
@@ -23,39 +21,37 @@ body {
 #container {
   display: flex;
   gap: 30px;
-  justify-content: end;
+  justify-content: center;
   background-color: #030f29;
-  height: 35px;
-
-
+  height: 37px;
+  text-align: center;
 }
-
-
-
-
 
 .anchor {
   text-decoration: none;
   color: #ebfee9;
   font-size: large;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  padding-left: 20px;
 }
 
 .p {
-  
   font-size: larger;
+}
+
+.tasksDiv {
+  position: relative;
+  left: 280px;
 }
 
 .completedDiv {
   position: relative;
-  right: 30px;
+  left: 280px;
 }
 
 .title {
   display: flex;
   position: relative;
-  right: 650px;
+  right: 300px;
   color: white;
 }
 
@@ -65,7 +61,7 @@ body {
   font-size: large;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   position: relative;
-  right: 20px;
+  left: 300px;
 }
 
 .pendingList {
@@ -82,7 +78,15 @@ body {
 
 .greeting {
   position: relative;
+  color: black;
   bottom: 380px;
+  left: 300px;
+}
+
+.secondGreeting {
+  position: relative;
+  color: black;
+  bottom: 340px;
   left: 300px;
 }
 
@@ -100,18 +104,24 @@ body {
   position: relative;
   bottom: 380px;
   left: 300px;
+  background-color: #d9d9d9;
+  font-size: large;
 }
 
 .registerInput {
   position: relative;
   bottom: 360px;
   left: 300px;
+  background-color: #d9d9d9;
+  font-size: large;
 }
 
 .rpasswordInput {
   position: relative;
   bottom: 340px;
   left: 300px;
+  background-color: #d9d9d9;
+  font-size: large;
 }
 
 .registerButton {
@@ -120,6 +130,7 @@ body {
   height: 35px;
   width: 400px;
   left: 300px;
+  background-color: #d0f2e9;
 }
 
 .header2 {
@@ -138,12 +149,16 @@ body {
   position: relative;
   bottom: 320px;
   left: 300px;
+  background-color: #d9d9d9;
+  font-size: large;
 }
 
 .passwordInput {
   position: relative;
   bottom: 300px;
   left: 300px;
+  background-color: #d9d9d9;
+  font-size: large;
 }
 
 .loginButton {
@@ -152,12 +167,13 @@ body {
   height: 35px;
   width: 400px;
   left: 300px;
+  background-color: #d0f2e9;
 }
 
 .logout {
   text-decoration: none;
   position: relative;
-  right: 2px;
+  left: 165px;
 
   color: #ebfee9;
   font-size: large;
@@ -186,22 +202,22 @@ input {
 
 .deleteButton {
   height: 25px;
-  width: 25px;
+  width: 30px;
   background-color: red;
   margin-left: 20px;
 }
 
 .updateButton {
   height: 25px;
-  width: 25px;
+  width: 35px;
   background-color: blue;
   margin-left: 20px;
 }
 
 .completedButton {
   height: 25px;
-  width: 25px;
-  background-color: green;
+  width: 35px;
+  background-color: #13e82f;
   margin-left: 20px;
 }
 

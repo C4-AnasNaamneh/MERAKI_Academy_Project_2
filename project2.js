@@ -48,7 +48,7 @@ tasksAnchor.addClass("anchor");
 // add class
 completedAnchor.addClass("anchor");
 //creating anchortag for toggle
-const toggle = $(`<a href = "#">Dark/Light </a>`);
+const toggle = $(`<a> <i class="fas fa-dot-circle"></i></a>`);
 //add class
 toggle.addClass("mode");
 //append anchor to container div
@@ -172,6 +172,11 @@ image2.attr(
 );
 //append image2 to div
 image2.appendTo(loginDiv);
+
+const secondGreeting = $("<h1>Welcome</h1>");
+secondGreeting.addClass("secondGreeting");
+secondGreeting.appendTo(loginDiv);
+
 //creating input
 const loginInput = $(
   `<br><input placeholder="Enter your Email" type = "email">`
@@ -201,7 +206,8 @@ logoutDiv.addClass("logout");
 //append div to container div
 logoutDiv.appendTo(container);
 //creating anchortag
-const logoutAnchor = $("<a href =# >Logout</a>");
+const logoutAnchor = $(`<a><i class="fa fa-window-close" aria-hidden="true"></i>
+</a>`);
 //add class
 logoutAnchor.addClass("logout");
 //append anchor to div
@@ -212,25 +218,115 @@ inputButtonDiv.hide();
 divContainer.hide();
 loginDiv.hide();
 logoutAnchor.hide();
+
+let dataBase = JSON.parse(localStorage.getItem("dataBaseArray")) || [];
+
+//console.log(dataBase);
+
+const registerAccount = () => {
+  dataBase.forEach((element, i) => {
+    //usernameInput.text(element.username);
+    //  registerInput.text(value2);
+    // rpasswordInput.text(value3);
+
+    //const value =  ;
+    //const value2 = element.registerEmail;
+    //const value3 = element.registerPassword;
+
+    console.log(usernameInput);
+    //console.log(value2);
+    //console.log(value3);
+
+    /*
+  if (  usernameInput.val() ) {
+
+    console.log(usernameInput.val());
+
+    usernameInput.text(usernameInput.val())
+  }
+
+  if (element.registerEmail === registerInput.val() ) {
+    registerInput.text(registerInput.val());
+  }
+
+  if (element.registerPassword === rpasswordInput.val()) {
+    rpasswordInput.text(rpasswordInput.val());
+  } else if (element.username !== usernameInput.val()) {
+    return "wrong user";
+  } else if (element.registerEmail !== registerInput.val()) {
+    return "wrong email"
+  } else if (element.registerPassword === rpasswordInput.val()) {
+    return "wrong password"
+  }
+
+*/
+  });
+
+  localStorage.setItem("dataBaseArray", JSON.stringify(dataBase));
+};
+registerAccount();
+
 //on click
 registerButton.on("click", () => {
+  dataBase.push(
+    {
+      username: usernameInput.val(),
+      registerEmail: registerInput.val(),
+      registerPassword: rpasswordInput.val(),
+    },
+    {
+      loginEmail: loginInput.val(),
+      passwordEmail: passwordInput.val(),
+    }
+  );
+
   inputButtonDiv.show();
   divContainer.show();
   registerDiv.hide();
   logoutAnchor.show();
+
+  localStorage.setItem("dataBaseArray", JSON.stringify(dataBase));
+
+  registerAccount();
 });
+
+const loginAccount = () => {
+  dataBase = [];
+
+  dataBase.forEach((login, i) => {});
+
+  loginInput.appendTo(loginDiv);
+  passwordInput.appendTo(loginDiv);
+  loginButton.appendTo(loginDiv);
+
+  localStorage.setItem("dataBaseArray", JSON.stringify(dataBase));
+};
+loginAccount();
+
+//on click
+loginButton.on("click", () => {
+  dataBase.push({
+    loginEmail: loginInput.val(),
+
+    loginPassword: passwordInput.val(),
+  });
+
+  inputButtonDiv.show();
+  divContainer.show();
+  loginDiv.hide();
+  logoutAnchor.show();
+
+  localStorage.setItem("dataBaseArray", JSON.stringify(dataBase));
+
+  loginAccount();
+});
+
 //on click
 loginAnchor.on("click", () => {
   registerDiv.hide();
   loginDiv.show();
 });
-//on click
-loginButton.on("click", () => {
-  inputButtonDiv.show();
-  divContainer.show();
-  loginDiv.hide();
-  logoutAnchor.show();
-});
+
 //on click
 logoutAnchor.on("click", () => {
   inputButtonDiv.hide();
@@ -239,11 +335,12 @@ logoutAnchor.on("click", () => {
   logoutAnchor.hide();
   registerDiv.show();
 });
+
+//retrieving data from local storage
+
 let toDos = JSON.parse(localStorage.getItem("toDosArray")) || [];
 //function that renders array elements
 const toDo = () => {
-  //retrieving data from local storage
-
   toDos.forEach((element, i) => {
     //creating list
     let listItem = $("<li></li>");
@@ -396,11 +493,6 @@ const addtoList = () => {
     task: input.val(),
     isCompleted: false,
     date: inputDate.val(),
-    Register: {
-      usernameInput: input.val(),
-      registerInput: input.val(),
-      rpasswordInput: input.val(),
-    },
   });
 
   localStorage.setItem("toDosArray", JSON.stringify(toDos));
@@ -424,13 +516,3 @@ toggle.on("click", () => {
 
   myFunction();
 });
-
-let arr = [
-  {
-    usernameInput: usernameInput.val(),
-    email: registerInput.val(),
-    password: rpasswordInput.val(),
-  },
-
-  { loginInput: input.val(), passwordInput: input.val() },
-];
