@@ -1,5 +1,3 @@
-//assign array
-
 //local storage
 const localStorage = window.localStorage;
 //let storage = JSON.parse(localStorage.getItem("toDosArray"));
@@ -240,11 +238,10 @@ logoutAnchor.on("click", () => {
   logoutAnchor.hide();
   registerDiv.show();
 });
-let toDos = JSON.parse(localStorage.getItem("toDosArray"))  || [];
+let toDos = JSON.parse(localStorage.getItem("toDosArray")) || [];
 //function that renders array elements
 const toDo = () => {
   //retrieving data from local storage
-  
 
   toDos.forEach((element, i) => {
     //creating list
@@ -300,13 +297,6 @@ const toDo = () => {
       localStorage.setItem("toDosArray", JSON.stringify(toDos));
 
       listItem.remove();
-
-      // for (let i = 0; i < storage.length; i++) {
-      //   const remove = storage.splice(i, 1);
-      //   const myJSON = JSON.stringify(remove);
-
-      //   localStorage.setItem("toDosArray", toDos);
-      // }
     });
     // on click
     updateButton.on("click", () => {
@@ -316,13 +306,12 @@ const toDo = () => {
         date: inputDate.val(),
       };
 
-      console.log(toDos[i],i);
+      console.log(toDos[i], i);
 
       localStorage.setItem("toDosArray", JSON.stringify(toDos));
       unorderedList.text("");
 
-      toDo()
-
+      toDo();
     });
     // on click
     tasksDiv.on("click", () => {
@@ -334,21 +323,15 @@ const toDo = () => {
         pendingList.appendTo(listItem);
         pendingList.show();
       }
-
-      
+      localStorage.setItem("toDosArray", JSON.stringify(toDos));
     });
     // on click
     pendingList.on("click", () => {
       inputButtonDiv.show();
       //pendingList.hide();
       $(".pendingList").hide();
-
     });
 
-    // completedList.on("click", () => {
-    //   inputButtonDiv.show();
-    //   completedList.hide();
-    // });
     // on click
     completedButton.on("click", () => {
       element.isCompleted = true;
@@ -359,28 +342,46 @@ const toDo = () => {
       }
       localStorage.setItem("toDosArray", JSON.stringify(toDos));
     });
+
     // on click
     completedDiv.on("click", () => {
       let answer = toDos.filter((element, i) => {
         return element.isCompleted === true;
       });
-      completedList.appendTo(listItem);
+      //completedList.appendTo(listItem);
+      console.log(answer);
 
-      // listItem.show();
+      listItem.hide();
+
+      //listItem.show();
       // pendingList.hide();
       // completedList.show();
 
       answer.forEach((element, i) => {
-        //  toDos = [];
+        toDos = [];
         const value = element.task;
+        
         const p = $(`<p>${value}</p>`);
-        p.addClass(p);
+        p.addClass("p");
         p.appendTo(divContainer);
+        inputButtonDiv.hide();
+        completedList.appendTo(p);
       });
+
       //store data to local storage
 
       localStorage.setItem("toDosArray", JSON.stringify(toDos));
     });
+
+    // on click
+    completedList.on("click", () => {
+      $(".completedList").hide();
+      //divContainer.hide()
+      //p.appendTo(divContainer);
+      $(".p").hide()
+      inputButtonDiv.show();
+    });
+    localStorage.setItem("toDosArray", JSON.stringify(toDos));
   });
 };
 toDo();
