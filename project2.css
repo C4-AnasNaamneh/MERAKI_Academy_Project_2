@@ -28,10 +28,16 @@ body {
   height: 35px;
 
 
-
-
-
 }
+
+.update {
+
+
+  height: 40px;
+  width: 40px;
+}
+
+
 
 .anchor {
   text-decoration: none;
