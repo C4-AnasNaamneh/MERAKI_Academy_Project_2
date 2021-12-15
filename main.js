@@ -14,11 +14,20 @@ title.addClass("title");
 //append div to container div
 title.appendTo(container);
 //creating header
-const header = $("<h1>Schedule your day</h1>");
+const header = $(`<i class="fas fa-clipboard-list">    Schedule your day</i>`);
 //add class
-header.addClass("h1");
+
+//"<h1>Schedule your day</h1>"
+
+
+
+header.addClass("header");
 //append header to div
 header.appendTo(title);
+
+
+
+
 //create div
 const tasksDiv = $("<div></div>");
 //append div to container div
@@ -97,6 +106,8 @@ registerDiv.addClass("registerDiv");
 // append div to body
 registerDiv.appendTo(body);
 
+
+
 // creating image
 const image = $(`<img>`);
 // add class
@@ -129,9 +140,6 @@ const usernameInputLabel = $(`<label for = "text">Username:</label>`);
 usernameInputLabel.addClass("usernameInputLabel");
 usernameInputLabel.appendTo(registerDiv);
 
-
-
-
 //creating input
 const registerInput = $(
   `<input placeholder="Enter your Email" type = "email">`
@@ -141,14 +149,9 @@ registerInput.addClass("registerInput");
 //append input to div
 registerInput.appendTo(registerDiv);
 
-
 const registerInputLabel = $(`<label for = "Email">E-mail:</label>`);
 registerInputLabel.addClass("registerInputLabel");
 registerInputLabel.appendTo(registerDiv);
-
-
-
-
 
 //creating input
 const rpasswordInput = $(
@@ -159,11 +162,9 @@ rpasswordInput.addClass("rpasswordInput");
 //append input to div
 rpasswordInput.appendTo(registerDiv);
 
-
 const rpasswordInputLabel = $(`<label>Password:</label>`);
 rpasswordInputLabel.addClass("rpasswordInputLabel");
 rpasswordInputLabel.appendTo(registerDiv);
-
 
 //creating button
 const registerButton = $(`<br><button>Register</button>`);
@@ -229,9 +230,8 @@ passwordInput.addClass("passwordInput");
 //append input to div
 passwordInput.appendTo(loginDiv);
 
-
 const passwordInputLabel = $("<label>Password:</label>");
-passwordInputLabel.addClass("passwordInputLabel")
+passwordInputLabel.addClass("passwordInputLabel");
 passwordInputLabel.appendTo(loginDiv);
 
 //creating button
@@ -308,8 +308,8 @@ const registerAccount = () => {
         usernameError.show();
         registerEmailError.show();
         console.log("s");
-      } 
-      if (registerInput.val().length <7 ) {
+      }
+      if (registerInput.val().length < 7) {
         registerDiv.show();
         loginDiv.hide();
         inputButtonDiv.hide();
@@ -317,9 +317,7 @@ const registerAccount = () => {
         usernameError.show();
         registerEmailError.show();
         rpasswordError.show();
-      }
-      
-      else {
+      } else {
         registerDiv.show();
         loginDiv.hide();
         inputButtonDiv.hide();
@@ -329,12 +327,8 @@ const registerAccount = () => {
         rpasswordError.hide();
       }
     } else {
-
       localStorage.setItem("dataBaseArray", JSON.stringify(dataBase));
-
     }
-    
-   
   });
 
   localStorage.setItem("dataBaseArray", JSON.stringify(dataBase));
@@ -362,8 +356,6 @@ registerButton.on("click", () => {
   registerAccount();
 });
 
-
-
 const loginInputError = $(`<p>Error:Email doesn't exist</p>`);
 loginInputError.addClass("loginInputError");
 loginInputError.appendTo(loginDiv);
@@ -376,46 +368,32 @@ passwordInputError.appendTo(loginDiv);
 
 const loginAccount = () => {
   // dataBase = [];
-   dataBase = [];
+  dataBase = [];
   dataBase.forEach((login, i) => {
-
-    if (loginInput.length >= 7 && passwordInput.length >=7){
-
-    inputButtonDiv.show();
-    divContainer.show();
-  
-    } else if (loginInput.length < 7 ) {
-       if (passwordInput.length <7) {
-
+    if (loginInput.length >= 7 && passwordInput.length >= 7) {
+      inputButtonDiv.show();
+      divContainer.show();
+    } else if (loginInput.length < 7) {
+      if (passwordInput.length < 7) {
         loginDiv.show();
         inputButtonDiv.hide();
         divContainer.hide();
-        loginInputError.hide()
-        passwordInputError.show()
-  
-       } else {
-
-
+        loginInputError.hide();
+        passwordInputError.show();
+      } else {
         loginDiv.show();
         inputButtonDiv.hide();
         divContainer.hide();
-        loginInputError.show()
-        passwordInputError.show()
-
-       }
-
+        loginInputError.show();
+        passwordInputError.show();
+      }
     } else {
-
       loginDiv.show();
       inputButtonDiv.hide();
       divContainer.hide();
-      loginInputError.show()
-      passwordInputError.show()
-
-
+      loginInputError.show();
+      passwordInputError.show();
     }
-
-
   });
 
   loginInput.appendTo(loginDiv);
