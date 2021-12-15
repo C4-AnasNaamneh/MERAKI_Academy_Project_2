@@ -181,9 +181,7 @@ secondGreeting.addClass("secondGreeting");
 secondGreeting.appendTo(loginDiv);
 
 //creating input
-const loginInput = $(
-  `<input placeholder="Enter your Email" type = "email">`
-);
+const loginInput = $(`<input placeholder="Enter your Email" type = "email">`);
 //add class
 loginInput.addClass("loginInput");
 //append input to div
@@ -195,7 +193,6 @@ const passwordInput = $(
 
 const br1 = $("<br/>");
 br1.appendTo(loginDiv);
-
 
 //add class
 passwordInput.addClass("passwordInput");
@@ -227,38 +224,81 @@ divContainer.hide();
 loginDiv.hide();
 logoutAnchor.hide();
 
+const usernameError = $(
+  `<p>Error: Username must be more than 6 characters</p>`
+);
+usernameError.addClass("usernameError");
+usernameError.appendTo(registerDiv);
+
+usernameError.hide();
+
+const registerEmailError = $(
+  `<p>Error: Email must be more than 6 characters</p>`
+);
+registerEmailError.addClass("registerEmailError");
+registerEmailError.appendTo(registerDiv);
+registerEmailError.hide();
+
+const rpasswordError = $(
+  `<p>Error: Password must be more than 6 charachters </p>`
+);
+rpasswordError.addClass("rpasswordError");
+rpasswordError.appendTo(registerDiv);
+rpasswordError.hide();
+
 let dataBase = JSON.parse(localStorage.getItem("dataBaseArray")) || [];
 
 //console.log(dataBase);
 
 const registerAccount = () => {
   dataBase.forEach((element, i) => {
-    console.log(element);
-    //usernameInput.text(element.username);
+    if (
+      usernameInput.val().length >= 7 &&
+      registerInput.val().length >= 7 &&
+      passwordInput.val().length >= 7
+    ) {
+      console.log("www");
 
-    console.log(element.username);
+      inputButtonDiv.show();
+      divContainer.show();
+      registerDiv.hide();
+      logoutAnchor.show();
+    } else if (usernameInput.val().length < 7) {
+      if (registerInput.val().length < 7) {
+        registerDiv.show();
+        loginDiv.hide();
+        inputButtonDiv.hide();
+        divContainer.hide();
+        usernameError.show();
+        registerEmailError.show();
+        console.log("s");
+      } 
+      if (registerPassword.val().length <7 ) {
+        registerDiv.show();
+        loginDiv.hide();
+        inputButtonDiv.hide();
+        divContainer.hide();
+        usernameError.show();
+        registerEmailError.show();
+        rpasswordError.show();
+      }
+      
+      else {
+        registerDiv.show();
+        loginDiv.hide();
+        inputButtonDiv.hide();
+        divContainer.hide();
+        usernameError.show();
+        registerEmailError.hide();
+        rpasswordError.hide();
+      }
+    } else {
 
-    /*
-  if (   ) {
+      localStorage.setItem("dataBaseArray", JSON.stringify(dataBase));
 
+    }
     
-  }
-
-  if (element.registerEmail === registerInput.val() ) {
-    registerInput.text(registerInput.val());
-  }
-
-  if (element.registerPassword === rpasswordInput.val()) {
-    rpasswordInput.text(rpasswordInput.val());
-  } else if (element.username !== usernameInput.val()) {
-    return "wrong user";
-  } else if (element.registerEmail !== registerInput.val()) {
-    return "wrong email"
-  } else if (element.registerPassword === rpasswordInput.val()) {
-    return "wrong password"
-  }
-
-*/
+   
   });
 
   localStorage.setItem("dataBaseArray", JSON.stringify(dataBase));
@@ -267,7 +307,7 @@ registerAccount();
 
 //on click
 registerButton.on("click", () => {
-  console.log("usernameInput.val()", usernameInput.val());
+  // console.log("usernameInput.val()", usernameInput.val());
   dataBase.push({
     username: usernameInput.val(),
     registerEmail: registerInput.val(),
@@ -287,7 +327,7 @@ registerButton.on("click", () => {
 });
 
 const loginAccount = () => {
-  dataBase = [];
+  // dataBase = [];
 
   dataBase.forEach((login, i) => {});
 
@@ -422,18 +462,22 @@ const toDo = () => {
       inputButtonDiv.show();
       //pendingList.hide();
       $(".pendingList").hide();
+      input.val("");
       localStorage.setItem("toDosArray", JSON.stringify(toDos));
     });
 
     // on click
+    let completedArray = [];
     completedButton.on("click", () => {
       element.isCompleted = true;
-
-      console.log(element);
       if ((element.isCompleted = true)) {
         listItem.hide();
       }
-      localStorage.setItem("toDosArray", JSON.stringify(toDos));
+      // console.log(element);
+      // completedArray.push(element)
+      // console.log(completedArray);
+
+      localStorage.setItem("completed", JSON.stringify(toDos));
     });
 
     // on click
@@ -463,11 +507,13 @@ const toDo = () => {
         p.appendTo(divContainer);
         inputButtonDiv.hide();
         completedList.on("click", () => {
+          inputButtonDiv.show();
           $(".completedList").hide();
           //divContainer.hide()
           //p.appendTo(divContainer);
           $(".p").hide();
-          inputButtonDiv.show();
+          input.val("");
+
           localStorage.setItem("toDosArray", JSON.stringify(toDos));
         });
       });
