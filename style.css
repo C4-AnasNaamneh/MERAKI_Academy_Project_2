@@ -103,9 +103,20 @@ body {
 .usernameInput {
   position: relative;
   bottom: 370px;
-  left: 700px;
+  left: 590px;
   background-color: #d9d9d9;
   font-size: large;
+}
+
+
+.usernameInputLabel {
+
+font-size: x-large;
+position: relative;
+bottom: 370px;
+right: -70px;
+
+
 }
 
 .usernameError {
@@ -120,10 +131,21 @@ body {
 .registerInput {
   position: relative;
   bottom: 310px;
-  left: 300px;
+  left: 85px;
   background-color: #d9d9d9;
   font-size: large;
 }
+
+.registerInputLabel {
+
+
+font-size: x-large;
+position: relative;
+bottom: 310px;
+right: 400px;
+
+}
+
 
 
 .registerEmailError {
@@ -135,11 +157,22 @@ body {
 
 .rpasswordInput {
   position: relative;
-  bottom: 250px;
-  right: 100px;
+  bottom: 290px;
+  left: 350px;
   background-color: #d9d9d9;
   font-size: large;
 }
+
+.rpasswordInputLabel {
+
+
+  font-size: x-large;
+  position: relative;
+  bottom: 290px;
+  right: 160px;
+
+}
+
 
 .rpasswordError {
   color: red;
@@ -152,7 +185,7 @@ body {
 
 .registerButton {
   position: relative;
-  bottom: 230px;
+  bottom: 270px;
   height: 35px;
   width: 400px;
   left: 300px;
@@ -161,7 +194,7 @@ body {
 
 .header2 {
   position: relative;
-  bottom: 220px;
+  bottom: 250px;
   left: 300px;
   font-size: larger;
 }
@@ -175,10 +208,18 @@ body {
 
 .loginInput {
   position: relative;
-  bottom: 350px;
+  bottom: 390px;
   left: 500px;
   background-color: #d9d9d9;
   font-size: large;
+}
+
+.loginInputLabel {
+
+  font-size: x-large;
+  position: relative;
+  bottom: 330px;
+  left: 40px
 }
 
 
@@ -193,15 +234,26 @@ color: red;
 
 .passwordInput {
   position: relative;
-  bottom: 290px;
+  bottom: 330px;
   left: 100px;
   background-color: #d9d9d9;
   font-size: large;
 }
 
+.passwordInputLabel {
+
+  
+  font-size: x-large;
+  position: relative;
+  bottom: 297px;
+  left: 30px;
+
+}
+
+
 .loginButton {
   position: relative;
-  bottom: 270px;
+  bottom: 310px;
   height: 35px;
   width: 400px;
   left: 300px;

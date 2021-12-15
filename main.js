@@ -124,6 +124,14 @@ br.appendTo(registerDiv);
 usernameInput.addClass("usernameInput");
 //append input to div
 usernameInput.appendTo(registerDiv);
+
+const usernameInputLabel = $(`<label for = "text">Username:</label>`);
+usernameInputLabel.addClass("usernameInputLabel");
+usernameInputLabel.appendTo(registerDiv);
+
+
+
+
 //creating input
 const registerInput = $(
   `<input placeholder="Enter your Email" type = "email">`
@@ -132,6 +140,16 @@ const registerInput = $(
 registerInput.addClass("registerInput");
 //append input to div
 registerInput.appendTo(registerDiv);
+
+
+const registerInputLabel = $(`<label for = "Email">E-mail:</label>`);
+registerInputLabel.addClass("registerInputLabel");
+registerInputLabel.appendTo(registerDiv);
+
+
+
+
+
 //creating input
 const rpasswordInput = $(
   `<input placeholder="Enter your Password" type = "password">`
@@ -140,6 +158,13 @@ const rpasswordInput = $(
 rpasswordInput.addClass("rpasswordInput");
 //append input to div
 rpasswordInput.appendTo(registerDiv);
+
+
+const rpasswordInputLabel = $(`<label>Password:</label>`);
+rpasswordInputLabel.addClass("rpasswordInputLabel");
+rpasswordInputLabel.appendTo(registerDiv);
+
+
 //creating button
 const registerButton = $(`<br><button>Register</button>`);
 //add class
@@ -186,6 +211,11 @@ const loginInput = $(`<input placeholder="Enter your Email" type = "email">`);
 loginInput.addClass("loginInput");
 //append input to div
 loginInput.appendTo(loginDiv);
+
+const loginInputLabel = $(`<label >E-mail:</label>`);
+loginInputLabel.addClass("loginInputLabel");
+loginInputLabel.appendTo(loginDiv);
+
 //creating input
 const passwordInput = $(
   `<input placeholder="Enter your Password" type = "password">`
@@ -198,6 +228,12 @@ br1.appendTo(loginDiv);
 passwordInput.addClass("passwordInput");
 //append input to div
 passwordInput.appendTo(loginDiv);
+
+
+const passwordInputLabel = $("<label>Password:</label>");
+passwordInputLabel.addClass("passwordInputLabel")
+passwordInputLabel.appendTo(loginDiv);
+
 //creating button
 const loginButton = $(`<br><button>Login</button>`);
 //add class
@@ -228,7 +264,7 @@ const usernameError = $(
   `<p>Error: Username must be more than 6 characters</p>`
 );
 usernameError.addClass("usernameError");
-usernameError.appendTo(registerDiv);
+//usernameError.appendTo(registerDiv);
 
 usernameError.hide();
 
@@ -236,14 +272,14 @@ const registerEmailError = $(
   `<p>Error: Email must be more than 6 characters</p>`
 );
 registerEmailError.addClass("registerEmailError");
-registerEmailError.appendTo(registerDiv);
+//registerEmailError.appendTo(registerDiv);
 registerEmailError.hide();
 
 const rpasswordError = $(
   `<p>Error: Password must be more than 6 charachters </p>`
 );
 rpasswordError.addClass("rpasswordError");
-rpasswordError.appendTo(registerDiv);
+//rpasswordError.appendTo(registerDiv);
 rpasswordError.hide();
 
 let dataBase = JSON.parse(localStorage.getItem("dataBaseArray")) || [];
@@ -340,10 +376,10 @@ passwordInputError.appendTo(loginDiv);
 
 const loginAccount = () => {
   // dataBase = [];
-
+   dataBase = [];
   dataBase.forEach((login, i) => {
 
-    if (loginInput.length >= 7 && passwordInput.length){
+    if (loginInput.length >= 7 && passwordInput.length >=7){
 
     inputButtonDiv.show();
     divContainer.show();
@@ -563,6 +599,7 @@ const toDo = () => {
           //p.appendTo(divContainer);
           $(".p").hide();
           input.val("");
+          inputDate.val("");
 
           localStorage.setItem("toDosArray", JSON.stringify(toDos));
         });
