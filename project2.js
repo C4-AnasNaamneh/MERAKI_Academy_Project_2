@@ -273,7 +273,7 @@ const registerAccount = () => {
         registerEmailError.show();
         console.log("s");
       } 
-      if (registerPassword.val().length <7 ) {
+      if (registerInput.val().length <7 ) {
         registerDiv.show();
         loginDiv.hide();
         inputButtonDiv.hide();
@@ -326,10 +326,61 @@ registerButton.on("click", () => {
   registerAccount();
 });
 
+
+
+const loginInputError = $(`<p>Error:Email doesn't exist</p>`);
+loginInputError.addClass("loginInputError");
+loginInputError.appendTo(loginDiv);
+
+loginInputError.hide();
+
+const passwordInputError = $(`<p>Error:Wrong Password ,Please try again `);
+passwordInputError.addClass("passwordInputError");
+passwordInputError.appendTo(loginDiv);
+
 const loginAccount = () => {
   // dataBase = [];
 
-  dataBase.forEach((login, i) => {});
+  dataBase.forEach((login, i) => {
+
+    if (loginInput.length >= 7 && passwordInput.length){
+
+    inputButtonDiv.show();
+    divContainer.show();
+  
+    } else if (loginInput.length < 7 ) {
+       if (passwordInput.length <7) {
+
+        loginDiv.show();
+        inputButtonDiv.hide();
+        divContainer.hide();
+        loginInputError.hide()
+        passwordInputError.show()
+  
+       } else {
+
+
+        loginDiv.show();
+        inputButtonDiv.hide();
+        divContainer.hide();
+        loginInputError.show()
+        passwordInputError.show()
+
+       }
+
+    } else {
+
+      loginDiv.show();
+      inputButtonDiv.hide();
+      divContainer.hide();
+      loginInputError.show()
+      passwordInputError.show()
+
+
+    }
+
+
+  });
 
   loginInput.appendTo(loginDiv);
   passwordInput.appendTo(loginDiv);
@@ -467,7 +518,6 @@ const toDo = () => {
     });
 
     // on click
-    let completedArray = [];
     completedButton.on("click", () => {
       element.isCompleted = true;
       if ((element.isCompleted = true)) {
@@ -477,7 +527,7 @@ const toDo = () => {
       // completedArray.push(element)
       // console.log(completedArray);
 
-      localStorage.setItem("completed", JSON.stringify(toDos));
+      localStorage.setItem("toDosArray", JSON.stringify(toDos));
     });
 
     // on click

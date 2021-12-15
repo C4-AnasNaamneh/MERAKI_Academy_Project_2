@@ -78,14 +78,14 @@ body {
 
 .greeting {
   position: relative;
-  color: grey;
+  color: blue;
   bottom: 380px;
   left: 300px;
 }
 
 .secondGreeting {
   position: relative;
-  color: grey;
+  color: blue;
   bottom: 360px;
   left: 300px;
 }
@@ -179,6 +179,16 @@ body {
   left: 500px;
   background-color: #d9d9d9;
   font-size: large;
+}
+
+
+.loginInputError {
+
+position: relative;
+bottom: 290px;
+left: 250px;
+color: red;
+
 }
 
 .passwordInput {
